@@ -274,12 +274,12 @@ export function FAQSection() {
   }
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-16">
+        <div className="space-y-10 md:space-y-16">
           {faqSections.map((section, idx) => (
             <div key={`section-${idx}`}>
-              <h2 className="text-3xl font-bold text-blue-600 text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8 leading-tight">
                 {section.title}
               </h2>
               <div className="space-y-3">
@@ -292,9 +292,9 @@ export function FAQSection() {
                     >
                       <button
                         onClick={() => toggleAccordion(itemId)}
-                        className="w-full flex items-center justify-between p-5 hover:bg-gray-100 transition"
+                        className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 hover:bg-gray-100 transition"
                       >
-                        <span className="text-base text-gray-700 text-left font-medium">
+                        <span className="text-sm sm:text-base text-gray-700 text-left font-medium">
                           {item.question}
                         </span>
                         <ChevronDown
@@ -307,7 +307,7 @@ export function FAQSection() {
                       {openIndex === itemId && (
                         <div className="bg-white border-t border-gray-200">
                           <div className="grid grid-cols-1 md:grid-cols-3">
-                            <div className="md:col-span-2 px-5 py-4 md:border-r md:border-gray-200">
+                            <div className="md:col-span-2 px-4 sm:px-5 py-4 md:border-r md:border-gray-200">
                               <p className="text-gray-600 text-sm leading-7">{item.answer}</p>
                               {item.highlights && item.highlights.length > 0 && (
                                 <div className="mt-5">
@@ -331,7 +331,7 @@ export function FAQSection() {
                                 <p className="text-gray-600 text-sm mt-5">{item.afterHighlights}</p>
                               )}
                             </div>
-                            <div className="px-5 py-4 bg-gray-50">
+                            <div className="px-4 sm:px-5 py-4 bg-gray-50">
                               {item.details ? (
                                 <div className="space-y-3 text-sm text-gray-700">
                                   <p>

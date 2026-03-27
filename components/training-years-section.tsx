@@ -118,9 +118,9 @@ export function TrainingYearsSection() {
   const [openYears, setOpenYears] = useState<Set<string>>(() => new Set())
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-600 text-center mb-12">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 text-center mb-8 md:mb-12">
           Các khóa đào tạo được tổ chức trong những năm trước
         </h2>
 
@@ -142,7 +142,7 @@ export function TrainingYearsSection() {
                       return next
                     })
                   }}
-                  className="w-full px-6 py-3 bg-gray-50 flex items-center justify-between"
+                  className="w-full px-4 sm:px-6 py-3 bg-gray-50 flex items-center justify-between"
                 >
                   <span className="text-sm font-semibold text-gray-500">
                     {panel.year}
@@ -156,8 +156,8 @@ export function TrainingYearsSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 py-7">
-                    <h3 className="text-xl font-bold text-blue-700 mb-4">
+                  <div className="px-4 sm:px-6 py-6 sm:py-7">
+                    <h3 className="text-lg sm:text-xl font-bold text-blue-700 mb-4">
                       {panel.title}
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3">
