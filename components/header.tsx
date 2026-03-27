@@ -17,12 +17,28 @@ export function Header() {
         { label: 'Về Đại học Bách Khoa Hà Nội', href: 'https://hust.edu.vn/vi/about/tong-quan.html' },
       ],
     },
-    { label: 'Khóa học', href: '#' },
-    { label: 'Giải pháp', href: '#' },
-    { label: 'Các nhà phát triển', href: '#' },
+    {
+      label: 'Khóa học',
+      href: '#',
+      subItems: [
+        { label: 'NCP-AII (Professional AI Infrastructure)', href: 'https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-professional/' },
+        { label: 'NCP-AIO (Professional AI Operations)', href: 'https://www.nvidia.com/en-us/learn/certification/ai-operations-professional/' },
+        { label: 'NCA-AIIO (Associate AI Infrastructure and Operations)', href: 'https://www.nvidia.com/en-us/learn/certification/ai-networking-professional/' },
+        { label: 'NCP-ADS (Professional Accelerated Data Science)', href: 'https://www.nvidia.com/en-us/learn/certification/accelerated-data-science-professional/' },
+        { label: 'NCP-GENL (Professional Generative AI LLMs)', href: 'https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/' },
+        { label: 'NCP-AAI (Professional Agentic AI)', href: 'https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/' },
+        { label: 'NCP-OUSD (Professional OpenUSD Development)', href: 'https://www.nvidia.com/en-us/learn/certification/openusd-development-professional/' },
+      ],
+    },
     { label: 'Trung tâm Tin tức', href: '#' },
-    { label: 'Dịch vụ hỗ trợ', href: '#' },
-    { label: 'Quan hệ nhà đầu tư', href: '#' },
+    {
+      label: 'Dịch vụ hỗ trợ',
+      href: '#',
+      subItems: [
+        { label: 'Khu vực dành cho học viên', href: 'https://lms.honglinheducation.vn/login' },
+        { label: 'Khu vực dành cho khách', href: 'https://ai57.honglinheducation.vn/vi' },
+      ],
+    },
   ]
 
   return (

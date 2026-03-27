@@ -17,6 +17,12 @@ export function TestimonialsSection() {
       image: '/teacher/nam.jpg',
       bio: 'Đại sứ của University Ambassador sau khi ông vượt qua kỳ sát hạch chuyên môn của hãng.',
     },
+    {
+      name: ' TS. Đặng Hoàng Long',
+      title: 'Giảng viên khoa Công nghệ thông tin 1 tại Học viện Công nghệ Bưu chính Viễn thông (PTIT)',
+      image: '/teacher/long.jpg',
+      bio: 'các đại sứ NVIDIA sẽ là đại diện của NVIDIA tại các trường Đại học, sử dụng tài nguyên của NVIDIA để triển khai các khóa học về AI do NVIDIA cấp chứng chỉ.',
+    },
   ]
 
   return (
@@ -31,7 +37,7 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {experts.map((expert, index) => (
             <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">
               <div className="relative h-72 sm:h-96 md:h-152">

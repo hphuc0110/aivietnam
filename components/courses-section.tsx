@@ -4,21 +4,15 @@ import Image from 'next/image'
 
 export function CoursesSection() {
   const courses = [
-    { name: 'Những nguyên lý cơ bản của học sâu - Giới thiệu về lý thuyết và thực hành', duration: '' },
-    { name: 'Xây dựng các ứng dụng chống gian lận lừa dựa trên Transformer', duration: '' },
-    { name: 'Song song hóa dữ liệu – Huấn luyện mạng no-ron với nhiều GPU', duration: '' },
-    { name: 'Kiến thức cơ bản về điện toán tăng tốc – CUDA C/C++', duration: '' },
-    { name: 'Tăng tốc tính toán: Sử dụng nhiều GPU để tăng tốc các ứng dụng CUDA C++', duration: '' },
-    { name: 'Tăng tốc tính toán cơ bản – CUDA Python', duration: '' },
-    { name: 'Tăng tốc tính toán nâng cao: Mở rộng ứng dụng CUDA C++ lên GPU đa nhân', duration: '' },
-    { name: 'Xây dựng các ứng dụng kiểm tra công nghiệp dựa trên học sâu', duration: '' },
-    { name: 'Xây dựng các ứng dụng xử lý ngôn ngữ tự nhiên (NLP) dựa trên Transformer', duration: '' },
-    { name: 'Song song hóa mô hình — Xây dựng và triển khai các mạng no-ron quy mô lớn', duration: '' },
-    { name: 'Xây dựng các ứng dụng Trí tuệ nhân tạo tạo sinh dựa vào mô hình khuôn tấn', duration: '' },
-    { name: 'Mô hình ngôn ngữ lớn ứng dụng cao (LLM)', duration: '' },
-    { name: 'Xây dựng ứng dụng dựa trên Mô hình Ngôn ngữ Lớn (LLM)', duration: '' },
-    { name: 'Xây dựng mô hình ngôn ngữ quy mô lớn tác nhân RAG', duration: '' },
-    { name: 'Xây dựng các ứng dụng mô hình ngôn ngữ quy mô lớn (LLM) bằng kỹ thuật gợi ý (Hint Engineering)', duration: '' },
+    { name: 'NCP-AII (Professional AI Infrastructure)', duration: '180 phút' },
+    { name: 'NCP-AIO (Professional AI Operations)', duration: '180 phút' },
+    { name: 'NCA-AIIO (Associate AI Infrastructure and Operations)', duration: '120 phút' },
+    { name: 'NCP-ADS (Professional Accelerated Data Science)', duration: '180 phút' },
+    { name: 'NCP-GENL (Professional Generative AI LLMs)', duration: '180 phút' },
+    { name: 'NCP-AAI (Professional Agentic AI)', duration: '180 phút' },
+    { name: 'NCA-GENL (Associate Generative AI LLM)', duration: '120 phút' },
+    { name: 'NCA-GENM (Associate Generative AI Multimodal)', duration: '120 phút' },
+    { name: 'NCP-OUSD (Professional OpenUSD Development)', duration: '180 phút' },
   ]
 
   return (
@@ -54,19 +48,14 @@ export function CoursesSection() {
             <div className="flex items-start sm:items-center justify-center gap-2 text-left sm:text-center">
               <span>👤</span>
               <span>
-                <strong>Người liên hệ:</strong> Janet Mao, Quản lý Kinh doanh Đào tạo Giá trị Giá tăng
+                <strong>Người liên hệ:</strong> CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ PHÁT TRIỂN GIÁO DỤC HỒNG LĨNH
               </span>
             </div>
             <div className="flex items-start sm:items-center justify-center gap-2 text-left sm:text-center">
               <span>📱</span>
               <span>
-                <strong>Điện thoại:</strong> 18221028993
-              </span>
-            </div>
-            <div className="flex items-start sm:items-center justify-center gap-2 text-left sm:text-center">
-              <span>✉️</span>
-              <span>
-                <strong>Email:</strong> janet_mao@AI Việt Nam.com.cn
+                <strong>Điện thoại:</strong> 
+                093 699 33 39
               </span>
             </div>
           </div>
@@ -84,7 +73,7 @@ export function CoursesSection() {
               <thead className="bg-gray-100 border-b">
                 <tr>
                   <th className="px-6 py-4 font-bold text-gray-900">#</th>
-                  <th className="px-6 py-4 font-bold text-gray-900">Tên khóa học tiếng Trung</th>
+                  <th className="px-6 py-4 font-bold text-gray-900">Tên khóa học Tiếng Anh</th>
                   <th className="px-6 py-4 font-bold text-gray-900">Khoảng thời gian</th>
                 </tr>
               </thead>
@@ -118,18 +107,10 @@ export function CoursesSection() {
               <div>
                 <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <span className="text-blue-600">●</span>
-                  Khóa học mở tháng Hai:
+                  Khóa học mở tháng 4:
                 </h4>
                 <p className="text-gray-700 text-sm mb-6">
-                  Xây dựng ứng dụng AI video | Lớp học trực tuyến
-                </p>
-
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="text-blue-600">●</span>
-                  Khóa học mở tháng Tư:
-                </h4>
-                <p className="text-gray-700 text-sm mb-6">
-                  Giới thiệu về việc sử dụng RAG để nâng cao khả năng của các mô hình ngôn ngữ | Lớp học trực tuyến
+                Associate Generative AI LLM
                 </p>
 
                 <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
@@ -137,49 +118,31 @@ export function CoursesSection() {
                   Khóa học mở tháng 5:
                 </h4>
                 <p className="text-gray-700 text-sm mb-6">
-                  Hướng dẫn nhanh về xây dựng mạng no-ron | Lớp học trực tuyến
+                Professional Generative AI LLMs                 </p>
+
+                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <span className="text-blue-600">●</span>
+                  Khóa học mở tháng 5:
+                </h4>
+                <p className="text-gray-700 text-sm mb-6">
+                Associate Generative AI Multimodal
                 </p>
 
                 <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <span className="text-blue-600">●</span>
+                  Khóa học mở tháng 8:
                 </h4>
                 <p className="text-gray-700 text-sm">
-                  Hướng dẫn cơ bản về OpenUSD tháng 7 dành cho người mới bắt đầu | Lớp học trực tuyến
-                </p>
+                Professional Agentic AI                </p>
               </div>
 
               <div>
                 <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <span className="text-blue-600">●</span>
-                  Lớp học mở tháng 8:
+                  Khóa học mở tháng 9:
                 </h4>
                 <p className="text-gray-700 text-sm mb-6">
-                  Xây dựng công cụ chính sửa cảnh 3D tùy chỉnh với NVIDIA Omniverse | Lớp học trực tuyến
-                </p>
-
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="text-blue-600">●</span>
-                  Lớp học mở tháng 9:
-                </h4>
-                <p className="text-gray-700 text-sm mb-6">
-                  Để dạng phát triển các công cụ kỹ thuật kỹ 3D nâng cao với Omniverse | Lớp học trực tuyến
-                </p>
-
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="text-blue-600">●</span>
-                  Lớp học mở tháng 10:
-                </h4>
-                <p className="text-gray-700 text-sm mb-6">
-                  Phân đoạn ảnh bằng TensorFlow | Lớp học trực tuyến
-                </p>
-
-                <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
-                  <span className="text-blue-600">●</span>
-                  Lớp học mở tháng 12:
-                </h4>
-                <p className="text-gray-700 text-sm">
-                  Giới thiệu về NVIDIA NIM | Lớp học trực tuyến
-                </p>
+                Professional Accelerated Data Science                </p>
               </div>
             </div>
 

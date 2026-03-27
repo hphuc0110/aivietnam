@@ -10,25 +10,17 @@ export function HeroSection() {
           {/* Left Content */}
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
-              Nâng cao kỹ năng của bạn với khóa đào tạo DLI
+              Nâng cao kỹ năng của bạn với khóa đào tạo NVIDIA DLI
             </h1>
             <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
-              Chương trình đào tạo chuyên sâu được thiết kế để giúp bạn thành thạo Trí tuệ nhân tạo mới nhất.
+            Chương trình đào tạo chuyên sâu này được thiết kế một cách bài bản và có hệ thống nhằm giúp bạn không chỉ tiếp cận mà còn thực sự thành thạo các công nghệ Trí tuệ nhân tạo hiện đại nhất hiện nay. Thông qua lộ trình học tập kết hợp giữa nền tảng lý thuyết vững chắc và thực hành chuyên sâu trên các bài toán thực tế, bạn sẽ từng bước xây dựng năng lực phân tích, triển khai và tối ưu các mô hình AI trong nhiều bối cảnh khác nhau.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700 transition">
-                Bắt đầu ngay
-              </button>
-              <button className="w-full sm:w-auto px-6 sm:px-8 py-3 border-2 border-blue-600 text-blue-600 rounded font-semibold hover:bg-blue-50 transition">
-                Tìm hiểu thêm
-              </button>
-            </div>
           </div>
 
           {/* Right Image */}
           <div className="relative h-64 sm:h-80 md:h-full min-h-72">
             <Image
-              src="/hero-image.jpg"
+              src="/kiket.jpg"
               alt="Chuyên gia đào tạo DLI"
               fill
               className="object-cover rounded-lg shadow-lg"

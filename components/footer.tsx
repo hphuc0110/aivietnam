@@ -18,17 +18,6 @@ export function Footer() {
             <p className="text-sm mb-4">
               Cung cấp chương trình đào tạo Trí tuệ nhân tạo hàng đầu tại khu vực.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="hover:text-white transition">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="hover:text-white transition">
-                <Twitter size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -62,18 +51,15 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Mail size={16} className="mt-1 shrink-0" />
                 <a href="mailto:info@AI Việt Nam.com.vn" className="hover:text-white transition">
-                  info@AI Việt Nam.com.vn
+                  
+support@honglinheducation.vn
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={16} className="mt-1 shrink-0" />
-                <a href="tel:+84234567890" className="hover:text-white transition">
-                  +84 (0)23 4567 890
+                <a href="tel:0936993339" className="hover:text-white transition">
+                  093 699 33 39
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="mt-1 shrink-0" />
-                <span>123 Đường ABC, Quận 1, TP.HCM</span>
               </li>
             </ul>
           </div>
