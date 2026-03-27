@@ -1,12 +1,26 @@
 'use client'
 
-import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
+import Link from 'next/link'
+import { Mail, Phone } from 'lucide-react'
 
 export function Footer() {
+  const menuItems = [
+    {
+      label: 'Về AI Việt Nam',
+      href: '#',
+      subItems: [
+        { label: 'Về NIC', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
+        { label: 'Về Đại học Bách Khoa Hà Nội', href: 'https://hust.edu.vn/vi/about/tong-quan.html' },
+      ],
+    },
+    { label: 'Trung tâm Tin tức', href: '/news' },
+
+  ]
+
   return (
     <footer className="bg-gray-900 text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-10 md:mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -23,25 +37,34 @@ export function Footer() {
           {/* Quick Links */}
           <div>
             <h4 className="font-bold text-white mb-4">Liên kết nhanh</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">Trang chủ</a></li>
-              <li><a href="#" className="hover:text-white transition">Khóa học</a></li>
-              <li><a href="#" className="hover:text-white transition">Dịch vụ</a></li>
-              <li><a href="#" className="hover:text-white transition">Về chúng tôi</a></li>
-              <li><a href="#" className="hover:text-white transition">Liên hệ</a></li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-bold text-white mb-4">Tài nguyên</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-white transition">Tài liệu</a></li>
-              <li><a href="#" className="hover:text-white transition">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition">FAQ</a></li>
-              <li><a href="#" className="hover:text-white transition">Hỗ trợ</a></li>
-              <li><a href="#" className="hover:text-white transition">Cộng đồng</a></li>
-            </ul>
+            <div className="space-y-3 text-sm">
+              {menuItems.map((item) => (
+                <div key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="font-medium text-gray-200 hover:text-white transition"
+                  >
+                    {item.label}
+                  </Link>
+                  {item.subItems && (
+                    <ul className="mt-1 ml-3 space-y-1">
+                      {item.subItems.map((subItem) => (
+                        <li key={subItem.label}>
+                          <Link
+                            href={subItem.href}
+                            target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                            rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                            className="text-gray-400 hover:text-white transition"
+                          >
+                            {subItem.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Contact Info */}

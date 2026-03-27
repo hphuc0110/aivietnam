@@ -30,13 +30,21 @@ export function Header() {
         { label: 'NCP-OUSD (Professional OpenUSD Development)', href: 'https://www.nvidia.com/en-us/learn/certification/openusd-development-professional/' },
       ],
     },
-    { label: 'Trung tâm Tin tức', href: '#' },
+    { label: 'Trung tâm Tin tức', href: '/news' },
     {
       label: 'Dịch vụ hỗ trợ',
       href: '#',
       subItems: [
         { label: 'Khu vực dành cho học viên', href: 'https://lms.honglinheducation.vn/login' },
         { label: 'Khu vực dành cho khách', href: 'https://ai57.honglinheducation.vn/vi' },
+      ],
+    },
+    {
+      label: 'Liên hệ',
+      href: '#',
+      subItems: [
+        { label: 'Email', href: 'mailto:support@honglinheducation.vn' },
+        { label: 'Điện thoại', href: 'tel:0936993339' },
       ],
     },
   ]
@@ -79,8 +87,8 @@ export function Header() {
                       <Link
                         key={subItem.label}
                         href={subItem.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                        rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         {subItem.label}
@@ -136,8 +144,8 @@ export function Header() {
                       <Link
                         key={subItem.label}
                         href={subItem.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                        rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100"
                       >
                         {subItem.label}

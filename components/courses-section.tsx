@@ -15,6 +15,29 @@ export function CoursesSection() {
     { name: 'NCP-OUSD (Professional OpenUSD Development)', duration: '180 phút' },
   ]
 
+  const availableCourses = [
+    { name: 'Fundamentals of Deep Learning', duration: '8 giờ' },
+    { name: 'Fundamentals of Accelerated Data Science', duration: '8 giờ' },
+    { name: 'Building Transformer-Based Natural Language Processing Applications', duration: '8 giờ' },
+    { name: 'Building LLM Applications with Prompt Engineering', duration: '8 giờ' },
+    { name: 'Rapid Application Development With Large Language Models (LLMs)', duration: '8 giờ' },
+    { name: 'Building Conversational AI Applications', duration: '8 giờ' },
+    { name: 'Generative AI With Diffusion Models', duration: '8 giờ' },
+    { name: 'Building AI Agents with Multimodal Models', duration: '8 giờ' },
+    { name: 'Accelerating End-to-End Data Science Workflows', duration: '6 giờ' },
+    { name: 'Enhancing Data Science Outcomes With Efficient Workflow', duration: '8 giờ' },
+    { name: 'Adding New Knowledge to LLMs', duration: '8 giờ' },
+    { name: 'Model Parallelism: Building and Deploying Large Neural Networks', duration: '8 giờ' },
+    { name: 'Building RAG Agents with LLMs', duration: '8 giờ' },
+    { name: 'Building Agentic AI Applications With LLMs', duration: '8 giờ' },
+    { name: 'Introduction to Deploying RAG Pipelines for Production at Scale', duration: '8 giờ' },
+    { name: 'AI Infrastructure Professional Public Training', duration: '28 giờ' },
+    { name: 'AI Operations Professional Public Training', duration: '24 giờ' },
+    { name: 'Cumulus Linux Public Bootcamp', duration: '12 giờ' },
+    { name: 'InfiniBand Network Administration', duration: '6 giờ' },
+    { name: 'Spectrum-X Networking Platform Administration', duration: '12 giờ' },
+  ]
+
   return (
     <>
       {/* Section 1: Nội dung khóa học */}
@@ -62,7 +85,36 @@ export function CoursesSection() {
         </div>
       </section>
 
-      {/* Section 2: Các khóa học hiện có */}
+      {/* Section 2: Các chứng chỉ hiện có */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8">
+            Các chứng chỉ hiện có
+          </h2>
+          <div className="overflow-x-auto bg-white rounded-lg shadow">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead className="bg-gray-100 border-b">
+                <tr>
+                  <th className="px-6 py-4 font-bold text-gray-900">#</th>
+                  <th className="px-6 py-4 font-bold text-gray-900">Tên khóa học Tiếng Anh</th>
+                  <th className="px-6 py-4 font-bold text-gray-900">Khoảng thời gian</th>
+                </tr>
+              </thead>
+              <tbody>
+                {courses.map((course, idx) => (
+                  <tr key={idx} className="border-b hover:bg-gray-50 transition">
+                    <td className="px-6 py-4 font-semibold text-gray-900">{idx + 1}</td>
+                    <td className="px-6 py-4 text-gray-700 font-semibold">{course.name}</td>
+                    <td className="px-6 py-4 text-gray-700">{course.duration}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Các khóa học hiện có */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8">
@@ -78,10 +130,10 @@ export function CoursesSection() {
                 </tr>
               </thead>
               <tbody>
-                {courses.map((course, idx) => (
+                {availableCourses.map((course, idx) => (
                   <tr key={idx} className="border-b hover:bg-gray-50 transition">
                     <td className="px-6 py-4 font-semibold text-gray-900">{idx + 1}</td>
-                    <td className="px-6 py-4 text-gray-700">{course.name}</td>
+                    <td className="px-6 py-4 text-gray-700 font-semibold">{course.name}</td>
                     <td className="px-6 py-4 text-gray-700">{course.duration}</td>
                   </tr>
                 ))}
@@ -91,7 +143,7 @@ export function CoursesSection() {
         </div>
       </section>
 
-      {/* Section 3: Các khóa học mở do giảng viên AI Việt Nam hướng dẫn */}
+      {/* Section 4: Các khóa học mở do giảng viên AI Việt Nam hướng dẫn */}
       <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-8 md:mb-12">
@@ -109,7 +161,7 @@ export function CoursesSection() {
                   <span className="text-blue-600">●</span>
                   Khóa học mở tháng 4:
                 </h4>
-                <p className="text-gray-700 text-sm mb-6">
+                <p className="text-gray-700 text-sm font-semibold mb-6">
                 Associate Generative AI LLM
                 </p>
 
@@ -117,14 +169,14 @@ export function CoursesSection() {
                   <span className="text-blue-600">●</span>
                   Khóa học mở tháng 5:
                 </h4>
-                <p className="text-gray-700 text-sm mb-6">
+                <p className="text-gray-700 text-sm font-semibold mb-6">
                 Professional Generative AI LLMs                 </p>
 
                 <h4 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
                   <span className="text-blue-600">●</span>
                   Khóa học mở tháng 5:
                 </h4>
-                <p className="text-gray-700 text-sm mb-6">
+                <p className="text-gray-700 text-sm font-semibold mb-6">
                 Associate Generative AI Multimodal
                 </p>
 
@@ -132,7 +184,7 @@ export function CoursesSection() {
                   <span className="text-blue-600">●</span>
                   Khóa học mở tháng 8:
                 </h4>
-                <p className="text-gray-700 text-sm">
+                <p className="text-gray-700 text-sm font-semibold">
                 Professional Agentic AI                </p>
               </div>
 
@@ -141,7 +193,7 @@ export function CoursesSection() {
                   <span className="text-blue-600">●</span>
                   Khóa học mở tháng 9:
                 </h4>
-                <p className="text-gray-700 text-sm mb-6">
+                <p className="text-gray-700 text-sm font-semibold mb-6">
                 Professional Accelerated Data Science                </p>
               </div>
             </div>
@@ -150,9 +202,14 @@ export function CoursesSection() {
               <p className="text-gray-700 text-sm">
                 💬 Các khóa đào tạo về Trí tuệ nhân tạo hiện đã mở đăng ký...
               </p>
-              <button className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded transition text-sm">
+              <a
+                href="https://nvdam.widen.net/s/brxsxxtskb/dli-learning-journey-2009000-r5-web"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded transition text-sm text-center"
+              >
                 Xem lịch trình khóa học và đăng ký
-              </button>
+              </a>
             </div>
           </div>
         </div>

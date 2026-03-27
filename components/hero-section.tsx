@@ -9,7 +9,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-blue-600 mb-4 md:mb-6 leading-tight">
               Nâng cao kỹ năng của bạn với khóa đào tạo NVIDIA DLI
             </h1>
             <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
