@@ -30,7 +30,7 @@ export function ServiceSection() {
               Trung tâm Đào tạo Học sâu NVIDIA (DLI) cung cấp các khóa đào tạo thực hành về Trí tuệ nhân tạo (AI), điện toán tăng tốc và phát triển ứng dụng khoa học dữ liệu tăng tốc. Dựa trên nền tảng GPU đám mây được cấu hình đầy đủ, các nhà phát triển có thể nhanh chóng có được kinh nghiệm phát triển ứng dụng từ đầu đến cuối.
             </p>
             <p>
-              Leadtek, với tư cách là đối tác Trung tâm Đào tạo Học sâu (DLI) được ủy quyền chính thức của NVIDIA, đang phối hợp tổ chức các khóa đào tạo trực tuyến và hội thảo trực tiếp để bồi dưỡng nhân tài AI.
+              AI Việt Nam, với tư cách là đối tác Trung tâm Đào tạo Học sâu (DLI) được ủy quyền chính thức của NVIDIA, đang phối hợp tổ chức các khóa đào tạo trực tuyến và hội thảo trực tiếp để bồi dưỡng nhân tài AI.
             </p>
           </div>
 

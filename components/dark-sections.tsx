@@ -28,7 +28,7 @@ export function DarkSections() {
               </div>
               <div>
                 <p className="text-sm text-gray-400 mb-2">Email</p>
-                <p className="text-white font-semibold">service@leadtek.com.cn</p>
+                <p className="text-white font-semibold">service@AI Việt Nam.com.cn</p>
               </div>
             </div>
           </div>

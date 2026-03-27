@@ -86,13 +86,13 @@ export function TrainingYearsSection() {
         year: '2019',
         title: 'Khóa đào tạo DLI',
         leftItems: [
-          'Lớp học mới Leadtek | Thượng Hải | 25 tháng 7 năm 2019',
-          'Lớp học mới Leadtek | Thượng Hải | 29 tháng 8 năm 2019',
-          'Hội thảo mới Leadtek | Thượng Hải | 31 tháng 10 năm 2019'
+          'Lớp học mới AI Việt Nam | Thượng Hải | 25 tháng 7 năm 2019',
+          'Lớp học mới AI Việt Nam | Thượng Hải | 29 tháng 8 năm 2019',
+          'Hội thảo mới AI Việt Nam | Thượng Hải | 31 tháng 10 năm 2019'
         ],
         rightItems: [
           'Phiên họp chuyên đề về Y tế | Đại Liên | Ngày 4 tháng 8 năm 2019',
-          'Lớp học mở Leadtek | Thượng Hải | Ngày 26 tháng 9 năm 2019'
+          'Lớp học mở AI Việt Nam | Thượng Hải | Ngày 26 tháng 9 năm 2019'
         ]
       },
       {

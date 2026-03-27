@@ -14,6 +14,7 @@ type CourseDetails = {
 type FAQItem = {
   question: string
   answer: string
+  detailsUrl?: string
   highlightsTitle?: string
   highlights?: string[]
   afterHighlights?: string
@@ -167,7 +168,9 @@ export function FAQSection() {
         {
           question: 'Xây dựng con người kỹ thuật số bằng Omniverse Audio2Face và Riva',
           answer:
-            'Khóa học hướng dẫn tạo nhân vật số có khả năng biểu cảm khuôn mặt và giọng nói tự nhiên theo thời gian thực. Bạn sẽ thực hành kết hợp Audio2Face và Riva để xây dựng trải nghiệm tương tác sống động.'
+            'Khóa học hướng dẫn tạo nhân vật số có khả năng biểu cảm khuôn mặt và giọng nói tự nhiên theo thời gian thực. Bạn sẽ thực hành kết hợp Audio2Face và Riva để xây dựng trải nghiệm tương tác sống động.',
+          detailsUrl:
+            'https://www.nvidia.cn/training/instructor-led-workshops/build-digital-avatar-pipeline/'
         },
       ]
     },
@@ -349,24 +352,46 @@ export function FAQSection() {
                                   <p>
                                     <span className="font-semibold">Ngôn ngữ:</span> {item.details.language}
                                   </p>
-                                  <button
-                                    type="button"
-                                    className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
-                                  >
-                                    Thông tin chi tiết khóa học
-                                  </button>
+                                  {item.detailsUrl ? (
+                                    <a
+                                      href={item.detailsUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
+                                    >
+                                      Thông tin chi tiết khóa học
+                                    </a>
+                                  ) : (
+                                    <button
+                                      type="button"
+                                      className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
+                                    >
+                                      Thông tin chi tiết khóa học
+                                    </button>
+                                  )}
                                 </div>
                               ) : (
                                 <div className="space-y-3 text-sm text-gray-700">
                                   <p className="text-gray-600 text-sm">
                                     Thông tin điều kiện và chi tiết khóa học sẽ được cập nhật.
                                   </p>
-                                  <button
-                                    type="button"
-                                    className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
-                                  >
-                                    Thông tin chi tiết khóa học
-                                  </button>
+                                  {item.detailsUrl ? (
+                                    <a
+                                      href={item.detailsUrl}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
+                                    >
+                                      Thông tin chi tiết khóa học
+                                    </a>
+                                  ) : (
+                                    <button
+                                      type="button"
+                                      className="mt-2 inline-flex items-center rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
+                                    >
+                                      Thông tin chi tiết khóa học
+                                    </button>
+                                  )}
                                 </div>
                               )}
                             </div>

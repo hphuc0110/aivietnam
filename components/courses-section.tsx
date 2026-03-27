@@ -66,7 +66,7 @@ export function CoursesSection() {
             <div className="flex items-center justify-center gap-2">
               <span>✉️</span>
               <span>
-                <strong>Email:</strong> janet_mao@leadtek.com.cn
+                <strong>Email:</strong> janet_mao@AI Việt Nam.com.cn
               </span>
             </div>
           </div>
@@ -102,16 +102,16 @@ export function CoursesSection() {
         </div>
       </section>
 
-      {/* Section 3: Các khóa học mở do giảng viên Leadtek hướng dẫn */}
+      {/* Section 3: Các khóa học mở do giảng viên AI Việt Nam hướng dẫn */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-blue-600 text-center mb-12">
-            Các khóa học mở do giảng viên Leadtek hướng dẫn
+            Các khóa học mở do giảng viên AI Việt Nam hướng dẫn
           </h2>
 
           <div className="bg-gray-50 rounded-lg p-8 border border-gray-200">
             <h3 className="text-xl font-bold text-gray-900 mb-8">
-              Tổng quan về Khóa học Mở Leadtek AI 2024
+              Tổng quan về Khóa học Mở AI Việt Nam 
             </h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -185,7 +185,7 @@ export function CoursesSection() {
 
             <div className="border-t border-gray-300 pt-6 flex items-center justify-between">
               <p className="text-gray-700 text-sm">
-                💬 Các khóa đào tạo về Trí tuệ nhân tạo năm 2025 hiện đã mở đăng ký...
+                💬 Các khóa đào tạo về Trí tuệ nhân tạo hiện đã mở đăng ký...
               </p>
               <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded transition text-sm">
                 Xem lịch trình khóa học và đăng ký

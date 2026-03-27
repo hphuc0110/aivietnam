@@ -9,8 +9,8 @@ export function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   const menuItems = [
-    { label: 'Về Lita', href: '#' },
-    { label: 'Thông tin sản phẩm', href: '#' },
+    { label: 'Về AI Việt Nam', href: '#' },
+    { label: 'Khóa học', href: '#' },
     { label: 'Giải pháp', href: '#' },
     { label: 'Các nhà phát triển', href: '#' },
     { label: 'Trung tâm Tin tức', href: '#' },
@@ -20,7 +20,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-300 bg-white">
-      <div className="max-w-full px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -30,7 +30,7 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1 flex-1 ml-8">
+          <nav className="hidden md:flex items-center justify-center gap-1 flex-1">
             {menuItems.map((item) => (
               <Link
                 key={item.label}

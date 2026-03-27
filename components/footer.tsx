@@ -16,7 +16,7 @@ export function Footer() {
               <span className="font-bold text-white text-lg">AI Việt Nam</span>
             </div>
             <p className="text-sm mb-4">
-              Cung cấp chương trình đào tạo công nghệ LED Display hàng đầu tại khu vực.
+              Cung cấp chương trình đào tạo Trí tuệ nhân tạo hàng đầu tại khu vực.
             </p>
             <div className="flex gap-4">
               <a href="#" className="hover:text-white transition">
@@ -61,8 +61,8 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-3">
                 <Mail size={16} className="mt-1 flex-shrink-0" />
-                <a href="mailto:info@leadtek.com.vn" className="hover:text-white transition">
-                  info@leadtek.com.vn
+                <a href="mailto:info@AI Việt Nam.com.vn" className="hover:text-white transition">
+                  info@AI Việt Nam.com.vn
                 </a>
               </li>
               <li className="flex items-start gap-3">

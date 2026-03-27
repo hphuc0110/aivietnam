@@ -13,7 +13,7 @@ export function HeroSection() {
               Nâng cao kỹ năng của bạn với khóa đào tạo DLI
             </h1>
             <p className="text-lg text-gray-600 mb-8">
-              Chương trình đào tạo chuyên sâu được thiết kế để giúp bạn thành thạo công nghệ LED Display mới nhất.
+              Chương trình đào tạo chuyên sâu được thiết kế để giúp bạn thành thạo Trí tuệ nhân tạo mới nhất.
             </p>
             <div className="flex gap-4">
               <button className="px-8 py-3 bg-blue-600 text-white rounded font-semibold hover:bg-blue-700 transition">

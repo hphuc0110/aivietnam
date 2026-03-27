@@ -7,10 +7,10 @@ export function TestimonialsSection() {
   const experts = [
     {
       name: 'Quách Trung Chín',
-      title: 'Chuyên gia Công nghệ LED',
+      title: 'Chuyên gia Trí tuệ nhân tạo',
       image: '/expert-1.jpg',
-      bio: 'Có 15 năm kinh nghiệm trong ngành công nghệ LED Display. Đã tham gia thiết kế và triển khai hàng trăm dự án lớn tại Việt Nam và khu vực Đông Nam Á.',
-      expertise: 'LED Display, Kỹ thuật hiển thị'
+      bio: 'Có 15 năm kinh nghiệm trong ngành Trí tuệ nhân tạo. Đã tham gia thiết kế và triển khai hàng trăm dự án lớn tại Việt Nam và khu vực Đông Nam Á.',
+      expertise: 'Trí tuệ nhân tạo, Kỹ thuật hiển thị'
     },
     {
       name: 'Thương Vĩ Đào',
@@ -36,7 +36,7 @@ export function TestimonialsSection() {
             Đội ngũ chuyên gia của chúng tôi
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Được hướng dẫn bởi các chuyên gia hàng đầu trong ngành công nghệ LED Display
+            Được hướng dẫn bởi các chuyên gia hàng đầu trong ngành Trí tuệ nhân tạo
           </p>
         </div>
 
