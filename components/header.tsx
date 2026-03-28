@@ -15,6 +15,7 @@ export function Header() {
       subItems: [
         { label: 'Về NIC', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
         { label: 'Về Đại học Bách Khoa Hà Nội', href: 'https://hust.edu.vn/vi/about/tong-quan.html' },
+        { label: 'Về HLE', href: 'https://www.honglinheducation.vn/' },
       ],
     },
     {
