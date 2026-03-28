@@ -14,9 +14,9 @@ export function Header() {
       label: 'Về AI Việt Nam',
       href: '#',
       subItems: [
-        { label: 'Về NIC', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
+        { label: 'Về HongLinhEducation', href: '/about' },
         { label: 'Về Đại học Bách Khoa Hà Nội', href: 'https://hust.edu.vn/vi/about/tong-quan.html' },
-        { label: 'Về HLE', href: 'https://www.honglinheducation.vn/' },
+        { label: 'Về Trung tâm Đổi mới sáng tạo Quốc gia (NIC)', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
       ],
     },
     {
@@ -41,16 +41,12 @@ export function Header() {
         { label: 'Khu vực dành cho khách', href: 'https://ai57.honglinheducation.vn/vi' },
       ],
     },
-    {
-      label: 'Liên hệ',
-      href: '#',
-      subItems: [
-        { label: 'Email', href: 'mailto:support@honglinheducation.vn' },
-        { label: 'Điện thoại', href: 'tel:0936993339' },
-        { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61581528004490' },
-      ],
-    },
+    { label: 'Liên hệ', scrollToFooter: true },
   ]
+
+  function scrollToFooter() {
+    document.getElementById('site-footer')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-300 bg-white/95 backdrop-blur">
@@ -65,7 +61,15 @@ export function Header() {
           <nav className="hidden md:flex items-center justify-center gap-1 flex-1">
             {menuItems.map((item) => (
               <div key={item.label} className="relative group">
-                {item.subItems ? (
+                {'scrollToFooter' in item && item.scrollToFooter ? (
+                  <button
+                    type="button"
+                    onClick={scrollToFooter}
+                    className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition relative block"
+                  >
+                    {item.label}
+                  </button>
+                ) : item.subItems ? (
                   <button
                     type="button"
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition relative block"
@@ -75,16 +79,16 @@ export function Header() {
                   </button>
                 ) : (
                   <Link
-                    href={item.href}
+                    href={'href' in item && item.href ? item.href : '/'}
                     className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition relative block"
                   >
                     {item.label}
                   </Link>
                 )}
 
-                {item.subItems && (
+                {'subItems' in item && item.subItems && (
                   <div className="absolute left-0 top-full hidden min-w-[260px] rounded-md border border-gray-200 bg-white py-2 shadow-md group-hover:block group-focus-within:block">
-                    {item.subItems.map((subItem) => (
+                    {item.subItems!.map((subItem) => (
                       <Link
                         key={subItem.label}
                         href={subItem.href}
@@ -116,7 +120,18 @@ export function Header() {
           <nav className="md:hidden pb-4 space-y-1 border-t border-gray-200 pt-2">
             {menuItems.map((item) => (
               <div key={item.label}>
-                {item.subItems ? (
+                {'scrollToFooter' in item && item.scrollToFooter ? (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      scrollToFooter()
+                      setIsOpen(false)
+                    }}
+                    className="w-full text-left text-sm text-gray-700 py-2 px-4 hover:bg-gray-100"
+                  >
+                    {item.label}
+                  </button>
+                ) : item.subItems ? (
                   <button
                     type="button"
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
@@ -132,16 +147,16 @@ export function Header() {
                   </button>
                 ) : (
                   <Link
-                    href={item.href}
+                    href={'href' in item && item.href ? item.href : '/'}
                     className="w-full block text-sm text-gray-700 py-2 px-4 hover:bg-gray-100"
                   >
                     {item.label}
                   </Link>
                 )}
 
-                {item.subItems && openDropdown === item.label && (
+                {'subItems' in item && item.subItems && openDropdown === item.label && (
                   <div className="ml-4 border-l border-gray-200">
-                    {item.subItems.map((subItem) => (
+                    {item.subItems!.map((subItem) => (
                       <Link
                         key={subItem.label}
                         href={subItem.href}

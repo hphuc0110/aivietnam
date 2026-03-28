@@ -13,7 +13,7 @@ export function HeroSection() {
               Nâng cao kỹ năng của bạn với khóa đào tạo NVIDIA DLI
             </h1>
             <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">
-            Chương trình đào tạo chuyên sâu này được thiết kế một cách bài bản và có hệ thống nhằm giúp bạn không chỉ tiếp cận mà còn thực sự thành thạo các công nghệ Trí tuệ nhân tạo hiện đại nhất hiện nay. Thông qua lộ trình học tập kết hợp giữa nền tảng lý thuyết vững chắc và thực hành chuyên sâu trên các bài toán thực tế, bạn sẽ từng bước xây dựng năng lực phân tích, triển khai và tối ưu các mô hình AI trong nhiều bối cảnh khác nhau.
+            Chương trình đào tạo chuyên sâu này được thiết kế một cách <br /> bài bản và có hệ thống nhằm giúp bạn không chỉ tiếp cận mà còn thực sự thành thạo các công nghệ Trí tuệ nhân tạo hiện đại nhất hiện nay. Thông qua lộ trình học tập kết hợp giữa nền tảng <br /> lý thuyết vững chắc và thực hành chuyên sâu trên các bài toán thực tế, bạn sẽ từng bước xây dựng năng lực phân tích, triển khai và tối ưu các mô hình AI trong nhiều bối cảnh khác nhau.
             </p>
           </div>
 

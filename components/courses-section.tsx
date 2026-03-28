@@ -617,7 +617,7 @@ export function CoursesSection() {
   return (
     <>
       {/* Section 1: Nội dung khóa học */}
-      <section className="py-12 md:py-16 bg-white">
+      {/* <section className="py-12 md:py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6 md:mb-8 leading-tight">
             Tổ chức các khóa đào tạo cho tổ chức của bạn.
@@ -659,7 +659,7 @@ export function CoursesSection() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Section 2: Các chứng chỉ hiện có */}
       <section className="py-12 md:py-16 bg-gray-50">
@@ -668,7 +668,7 @@ export function CoursesSection() {
             Các chứng chỉ hiện có
           </h2>
           <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
-            Mỗi mục mở ra mô tả chi tiết giống phần Khóa học tổng quan về học sâu; liên kết dẫn tới trang
+            Mỗi mục mở ra mô tả chi tiết giống phần Khóa học tổng quan về học sâu; liên kết dẫn tới <br /> trang
             chính thức của NVIDIA để xem đề cương và đăng ký thi.
           </p>
           <div className="space-y-3">

@@ -33,7 +33,7 @@ export function TestimonialsSection() {
             Đội ngũ chuyên gia của chúng tôi
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Được hướng dẫn bởi các chuyên gia hàng đầu trong ngành Trí tuệ nhân tạo
+            Được hướng dẫn bởi các chuyên gia hàng đầu trong ngành <br /> Trí tuệ nhân tạo
           </p>
         </div>
 

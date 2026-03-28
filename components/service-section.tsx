@@ -22,12 +22,12 @@ export function ServiceSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 md:mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-blue-600 mb-6 md:mb-8 text-center leading-tight">
-            Học viện AI cho Việt Nam (DLI)
+            Học viện AI cho Việt Nam (VAIA)
           </h2>
           
           <div className="space-y-4 md:space-y-6 text-gray-700 leading-relaxed mb-8 md:mb-12 text-sm sm:text-base">
             <p>
-              Học viện AI cho Việt Nam (DLI) cung cấp các khóa đào tạo thực hành về Trí tuệ nhân tạo (AI), điện toán tăng tốc và phát triển ứng dụng khoa học dữ liệu tăng tốc. Dựa trên nền tảng GPU đám mây được cấu hình đầy đủ, các nhà phát triển có thể nhanh chóng có được kinh nghiệm phát triển ứng dụng từ đầu đến cuối.
+              Học viện AI cho Việt Nam (VAIA) cung cấp các khóa đào tạo thực hành về Trí tuệ nhân tạo (AI), điện toán tăng tốc và phát triển ứng dụng khoa học dữ liệu tăng tốc. Dựa trên nền tảng GPU đám mây được cấu hình đầy đủ, các nhà phát triển có thể nhanh chóng có được kinh nghiệm phát triển ứng dụng từ đầu đến cuối.
             </p>
             <p>
               AI Việt Nam, với tư cách là đối tác được ủy quyền chính thức của NVIDIA, đang phối hợp tổ chức các khóa đào tạo trực tuyến và hội thảo trực tiếp để bồi dưỡng nhân tài AI.

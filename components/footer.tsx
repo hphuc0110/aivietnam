@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Mail, MapPin, Phone } from 'lucide-react'
 import { SiteLogo } from '@/components/site-logo'
 
 export function Footer() {
@@ -10,8 +10,9 @@ export function Footer() {
       label: 'Về AI Việt Nam',
       href: '#',
       subItems: [
-        { label: 'Về NIC', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
+        { label: 'Về HongLinhEducation', href: '/about' },
         { label: 'Về Đại học Bách Khoa Hà Nội', href: 'https://hust.edu.vn/vi/about/tong-quan.html' },
+        { label: 'Về Trung tâm Đổi mới sáng tạo Quốc gia (NIC)', href: 'https://nic.gov.vn/c/14167/Ve-NIC' },
       ],
     },
     { label: 'Trung tâm Tin tức', href: '/news' },
@@ -19,7 +20,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer id="site-footer" className="bg-gray-900 text-gray-400 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Company Info */}
@@ -93,35 +94,18 @@ support@honglinheducation.vn
                   Xem trên Google Maps
                 </a>
               </li>
+              <li className="flex items-start gap-3">
+                <Facebook size={16} className="mt-1 shrink-0" />
+                <a
+                  href="https://www.facebook.com/profile.php?id=61581528004490"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition"
+                >
+                  Facebook
+                </a>
+              </li>
             </ul>
-          </div>
-        </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div>
-              <h4 className="font-bold text-white mb-2">Đăng ký nhận tin tức</h4>
-              <div className="flex flex-col sm:flex-row gap-2">
-                <input
-                  type="email"
-                  placeholder="Email của bạn"
-                  className="flex-1 px-4 py-2 bg-gray-800 text-white rounded text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                />
-                <button className="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded text-sm font-semibold hover:bg-blue-700 transition">
-                  Đăng ký
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-sm gap-4">
-            <p>&copy; 2024 AI Việt Nam. Bảo lưu mọi quyền.</p>
-            <div className="flex flex-wrap gap-4 sm:gap-6">
-              <a href="#" className="hover:text-white transition">Chính sách bảo mật</a>
-              <a href="#" className="hover:text-white transition">Điều khoản dịch vụ</a>
-              <a href="#" className="hover:text-white transition">Tuyên bố cookies</a>
-            </div>
           </div>
         </div>
       </div>
