@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
+import { SiteLogo } from '@/components/site-logo'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,6 +47,7 @@ export function Header() {
       subItems: [
         { label: 'Email', href: 'mailto:support@honglinheducation.vn' },
         { label: 'Điện thoại', href: 'tel:0936993339' },
+        { label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61581528004490' },
       ],
     },
   ]
@@ -55,10 +57,8 @@ export function Header() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14 sm:h-16 gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 bg-blue-600 rounded flex items-center justify-center">
-              <span className="text-white text-[10px] sm:text-xs font-bold">AI Việt Nam</span>
-            </div>
+          <Link href="/" className="flex items-center shrink-0 min-w-0">
+            <SiteLogo className="h-9 sm:h-10 w-auto max-w-[min(100%,260px)]" priority />
           </Link>
 
           {/* Desktop Navigation */}

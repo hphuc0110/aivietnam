@@ -1,7 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import { Mail, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
+import { SiteLogo } from '@/components/site-logo'
 
 export function Footer() {
   const menuItems = [
@@ -23,12 +24,9 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mb-10 md:mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-                <span className="text-white text-sm font-bold">LT</span>
-              </div>
-              <span className="font-bold text-white text-lg">AI Việt Nam</span>
-            </div>
+            <Link href="/" className="inline-block mb-4">
+              <SiteLogo className="h-12 sm:h-14 w-auto max-w-full" />
+            </Link>
             <p className="text-sm mb-4">
               Cung cấp chương trình đào tạo Trí tuệ nhân tạo hàng đầu tại khu vực.
             </p>
@@ -82,6 +80,17 @@ support@honglinheducation.vn
                 <Phone size={16} className="mt-1 shrink-0" />
                 <a href="tel:0936993339" className="hover:text-white transition">
                   093 699 33 39
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="mt-1 shrink-0" />
+                <a
+                  href="https://maps.app.goo.gl/dqey8MPyu5BXMvaR7"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition"
+                >
+                  Xem trên Google Maps
                 </a>
               </li>
             </ul>

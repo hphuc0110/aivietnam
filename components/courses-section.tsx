@@ -21,8 +21,25 @@ type Certificate = {
   details: CertificateDetails
 }
 
+type WorkshopDetails = {
+  audience: string
+  focus: string
+  format: string
+  language: string
+}
+
+type Workshop = {
+  name: string
+  duration: string
+  href: string
+  summary: string
+  highlights: string[]
+  details: WorkshopDetails
+}
+
 export function CoursesSection() {
   const [openCertIndex, setOpenCertIndex] = useState<string | null>(null)
+  const [openCourseIndex, setOpenCourseIndex] = useState<string | null>(null)
 
   const certificates: Certificate[] = [
     {
@@ -214,106 +231,386 @@ export function CoursesSection() {
     },
   ]
 
-  const availableCourses = [
+  const availableCourses: Workshop[] = [
     {
       name: 'Fundamentals of Deep Learning',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-deep-learning/',
+      summary:
+        'Workshop nền tảng giới thiệu học sâu trên GPU: từ perceptron, mạng nơ-ron tới CNN và huấn luyện thực tế. Bạn làm lab trên môi trường được cấu hình sẵn để hiểu quy trình dữ liệu → mô hình → đánh giá, chuẩn bị cho các lộ trình NLP, computer vision và GenAI sau này.',
+      highlights: [
+        'Khái niệm tensor, autograd và huấn luyện mạng nơ-ron trên GPU.',
+        'Xây dựng và huấn luyện CNN cho bài toán phân loại ảnh.',
+        'Theo dõi loss, tránh overfitting và đánh giá mô hình cơ bản.',
+        'Thực hành trên stack NVIDIA phù hợp triển khai học sâu trong doanh nghiệp.',
+      ],
+      details: {
+        audience: 'Lập trình viên, kỹ sư dữ liệu và người mới bắt đầu học sâu; nên có kiến thức Python cơ bản.',
+        focus: 'Nền tảng deep learning, CNN, huấn luyện và suy luận trên GPU.',
+        format: 'Hướng dẫn viên DLI, thực hành lab trên máy chủ GPU (theo lịch trang NVIDIA).',
+        language: 'Tiếng Anh (tài liệu và lab theo khóa công bố).',
+      },
     },
     {
       name: 'Fundamentals of Accelerated Data Science',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-accelerated-data-science/',
+      summary:
+        'Workshop tập trung khoa học dữ liệu tăng tốc trên GPU với RAPIDS (cuDF, cuML…): tiền xử lý, đặc trưng và mô hình ở quy mô lớn nhanh hơn so với chỉ CPU. Phù hợp đội cần rút ngắn vòng lặp thử nghiệm và xử lý bảng dữ liệu lớn.',
+      highlights: [
+        'Làm quen pipeline dữ liệu tăng tốc trên GPU với thư viện RAPIDS.',
+        'Tiền xử lý, EDA và huấn luyện mô hình học máy trên khối dữ liệu lớn.',
+        'So sánh hiệu năng và cách tích hợp vào luồng data science hiện có.',
+        'Thực hành các bước end-to-end phản ánh bài toán thực tế.',
+      ],
+      details: {
+        audience: 'Nhà khoa học dữ liệu, kỹ sư ML và analyst cần tăng tốc phân tích.',
+        focus: 'RAPIDS, workflow data science trên GPU, xử lý dữ liệu dạng bảng quy mô lớn.',
+        format: 'Workshop có hướng dẫn viên, lab thực hành theo đề cương NVIDIA DLI.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building Transformer-Based NLP Applications',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/natural-language-processing/',
+      summary:
+        'Khóa đi sâu kiến trúc transformer và ứng dụng NLP: embedding, attention, fine-tuning mô hình tiền huấn luyện cho tác vụ phân loại, trích xuất thông tin hoặc tương tự. Giúp bạn chuyển từ “dùng API” sang hiểu cách tinh chỉnh và triển khai mô hình ngôn ngữ trong dự án.',
+      highlights: [
+        'Nguyên lý transformer và cách áp dụng cho bài toán NLP cụ thể.',
+        'Fine-tuning mô hình tiền huấn luyện phù hợp dữ liệu và miền ứng dụng.',
+        'Đánh giá chất lượng, giới hạn và thực hành trên GPU.',
+        'Chuẩn bị nền cho các khóa LLM và RAG nâng cao hơn.',
+      ],
+      details: {
+        audience: 'Kỹ sư ML/NLP, lập trình viên AI đã có nền Python và học máy cơ bản.',
+        focus: 'Transformer, NLP ứng dụng, fine-tuning và inference hiệu năng.',
+        format: 'Workshop instructor-led với lab thực hành.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building LLM Applications with Prompt Engineering',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-llm-applications-with-prompt-engineering/',
+      summary:
+        'Tập trung vào kỹ thuật prompt và thiết kế ứng dụng quanh LLM: chain-of-thought, few-shot, giới hạn đầu ra, an toàn cơ bản và tích hợp API. Phù hợp đội sản phẩm cần xây prototype và luồng gọi mô hình ổn định mà chưa cần huấn luyện từ đầu.',
+      highlights: [
+        'Thiết kế prompt có cấu trúc, kiểm thử và cải tiến lặp.',
+        'Xây dựng luồng ứng dụng: ngữ cảnh, bộ nhớ ngắn hạn, giới hạn token.',
+        'Cân nhắc chi phí, độ trễ và chất lượng khi gọi API LLM.',
+        'Thực hành các kịch bản phổ biến trong doanh nghiệp.',
+      ],
+      details: {
+        audience: 'Developer, kỹ sư ứng dụng AI và PM kỹ thuật làm việc với LLM qua API.',
+        focus: 'Prompt engineering, kiến trúc ứng dụng LLM, thực hành tích hợp.',
+        format: 'Workshop có lab; nội dung chi tiết theo trang khóa học NVIDIA.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Rapid Application Development with LLMs',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/rapid-application-development-with-llms/',
+      summary:
+        'Hướng tới phát triển nhanh ứng dụng LLM: khung suy nghĩ thiết kế, tái sử dụng thành phần, kiểm thử và triển khai bản thử nghiệm trong thời gian ngắn. Phù hợp hackathon nội bộ, PoC và đội cần rút ngắn time-to-first-demo.',
+      highlights: [
+        'Lộ trình từ ý tưởng tới prototype có thể demo được.',
+        'Tổ chức mã nguồn, prompt và luồng dữ liệu để dễ mở rộng.',
+        'Kiểm thử nhanh và xử lý lỗi thường gặp khi gọi LLM.',
+        'Gợi ý mô hình triển khai pilot trong tổ chức.',
+      ],
+      details: {
+        audience: 'Full-stack và AI engineer muốn tốc độ triển khai ứng dụng LLM.',
+        focus: 'Phát triển nhanh, prototype, thực hành end-to-end với LLM.',
+        format: 'Workshop thực hành theo chương trình DLI.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building Conversational AI Applications',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-conversational-ai-applications/',
+      summary:
+        'Workshop về hệ hội thoại: nhận dạng ý định, quản lý ngữ cảnh hội thoại, tích hợp ASR/TTS và mô hình ngôn ngữ cho phản hồi tự nhiên. Phù hợp xây chatbot hỗ trợ khách hàng, trợ lý nội bộ và kênh đa phương tiện.',
+      highlights: [
+        'Thiết kế luồng hội thoại và xử lý nhánh lỗi.',
+        'Tích hợp thành phần giọng nói và văn bản trong một kiến trúc thống nhất.',
+        'Cải thiện trải nghiệm người dùng và độ tin cậy phản hồi.',
+        'Thực hành trên kịch bản gần với triển khai thực tế.',
+      ],
+      details: {
+        audience: 'Kỹ sư ứng dụng AI, developer chatbot và đội sản phẩm đối thoại.',
+        focus: 'Conversational AI, pipeline hội thoại đa thành phần.',
+        format: 'Instructor-led workshop, lab trên nền tảng NVIDIA.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Generative AI with Diffusion Models',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/generative-ai-with-diffusion-models/',
+      summary:
+        'Giới thiệu mô hình khuếch tán (diffusion) cho sinh ảnh và nội dung: nguyên lý, tinh chỉnh có kiểm soát, tham số chất lượng/tốc độ và ứng dụng sáng tạo hoặc thiết kế. Phù hợp đội nội dung, đồ họa và R&D GenAI.',
+      highlights: [
+        'Hiểu pipeline diffusion và các biến thể phổ biến.',
+        'Thực hành sinh và chỉnh sửa ảnh với công cụ/framework trong khóa.',
+        'Tối ưu tài nguyên GPU và thời gian sinh.',
+        'Thảo luận use case và giới hạn bản quyền, đạo đức cơ bản.',
+      ],
+      details: {
+        audience: 'Nhà phát triển GenAI, researcher và designer kỹ thuật số.',
+        focus: 'Diffusion models, sinh ảnh, thực hành trên GPU.',
+        format: 'Workshop có hướng dẫn viên DLI.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building AI Agents with Multimodal Models',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-ai-agents-with-multimodal-models/',
+      summary:
+        'Kết hợp văn bản, hình ảnh và tín hiệu khác trong một agent: cách đưa nhiều loại đầu vào vào LLM đa phương thức, thiết kế vòng lặp suy luận và công cụ. Phù hợp ứng dụng trợ lý phân tích tài liệu + ảnh, hỗ trợ vận hành và QA đa kênh.',
+      highlights: [
+        'Thiết kế agent nhận đầu vào đa phương thức.',
+        'Tích hợp công cụ và API trong luồng quyết định.',
+        'Giám sát lỗi, hallucination và phản hồi không an toàn.',
+        'Thực hành các kịch bản minh họa.',
+      ],
+      details: {
+        audience: 'Kỹ sư AI/ML làm sản phẩm đa phương thức hoặc agent nâng cao.',
+        focus: 'Multimodal LLM, agent, orchestration thực hành.',
+        format: 'Workshop instructor-led.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Accelerating End-to-End Data Science Workflows',
       duration: '6 giờ',
       href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-02+V1',
+      summary:
+        'Khóa ngắn tập trung tối ưu toàn pipeline khoa học dữ liệu: từ nạp dữ liệu, huấn luyện tới suy luận, giảm điểm nghẽn và lặp lại thử nghiệm nhanh hơn nhờ GPU và thực hành tốt. Phù hợp đội đã có nền data science muốn “tăng tốc” quy trình.',
+      highlights: [
+        'Nhận diện bottleneck trong pipeline DS truyền thống.',
+        'Áp dụng tăng tốc GPU cho các bước phù hợp.',
+        'Thực hành workflow end-to-end trong phạm vi khóa.',
+        'Gợi ý tích hợp với môi trường sản xuất.',
+      ],
+      details: {
+        audience: 'Data scientist và kỹ sư dữ liệu đã quen Python, muốn rút ngắn thời gian chạy.',
+        focus: 'End-to-end accelerated data science, tối ưu pipeline.',
+        format: 'Khóa online/self-paced hoặc theo lịch NVIDIA Learn (xem trang khóa).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Enhancing Data Science Outcomes with Efficient Workflow',
       duration: '8 giờ',
       href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-04+V1',
+      summary:
+        'Nhấn mạnh hiệu quả công việc: tái sử dụng notebook, tổ chức thử nghiệm, theo dõi phiên bản dữ liệu/mô hình và giảm lãng phí GPU. Phù hợp tổ chức có nhiều người cùng dùng chung nền tảng học máy.',
+      highlights: [
+        'Thiết lập workflow có thể lặp lại và kiểm chứng.',
+        'Tối ưu chi phí tính toán và thời gian chờ.',
+        'Phối hợp nhóm: chia sẻ artifact và chuẩn hóa môi trường.',
+        'Thực hành theo tình huống trong khóa.',
+      ],
+      details: {
+        audience: 'Data science lead, MLOps engineer và DS trong nhóm lớn.',
+        focus: 'Quy trình hiệu quả, quản lý thử nghiệm và tài nguyên GPU.',
+        format: 'Theo đề cương NVIDIA Learn (course detail trên trang).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Adding New Knowledge to LLMs',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/adding-new-knowledge-to-llms/',
+      summary:
+        'Các cách bổ sung tri thức cho LLM: retrieval (RAG), fine-tuning có chọn lọc, dữ liệu tổ chức và cập nhật kiến thức theo thời gian. Giúp giảm “ảo giác” và cải thiện câu trả lời dựa trên tài liệu nội bộ hoặc miền chuyên biệt.',
+      highlights: [
+        'So sánh chiến lược RAG vs fine-tuning cho từng bài toán.',
+        'Chuẩn bị dữ liệu, chunking và đánh giá chất lượng trả lời.',
+        'Thực hành pipeline cơ bản tới trung cấp.',
+        'Cân nhắc bảo mật và quyền truy cập tài liệu.',
+      ],
+      details: {
+        audience: 'Kỹ sư LLM, developer triển khai chatbot tri thức doanh nghiệp.',
+        focus: 'RAG, cập nhật kiến thức, tinh chỉnh có mục tiêu.',
+        format: 'Workshop instructor-led DLI.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Model Parallelism: Building and Deploying Large Neural Networks',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/model-parallelism/',
+      summary:
+        'Khi mô hình vượt quá một GPU: song song hóa theo mô hình (model parallelism), pipeline parallel, chiến lược phân mảnh và cân bằng tải. Phù hợp kỹ sư huấn luyện LLM/trung gian lớn hoặc triển khai inference đa GPU.',
+      highlights: [
+        'Nguyên lý chia mô hình qua nhiều GPU.',
+        'Huấn luyện và suy luận với kiến trúc phân tán phù hợp.',
+        'Debug hiệu năng và chi phí giao tiếp giữa GPU.',
+        'Thực hành theo lab trong khóa.',
+      ],
+      details: {
+        audience: 'Kỹ sư ML hạ tầng, researcher huấn luyện mô hình lớn.',
+        focus: 'Model parallelism, triển khai mạng nơ-ron lớn đa GPU.',
+        format: 'Workshop có hướng dẫn viên.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building RAG Agents with LLMs',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-rag-agents-with-llms/',
+      summary:
+        'Kết hợp RAG với agent: lập kế hoạch truy vấn, gọi công cụ tìm kiếm/cơ sở dữ liệu, tổng hợp câu trả lời có trích dẫn. Phù hợp hệ trợ lý doanh nghiệp cần vừa đúng fact vừa linh hoạt nhiều bước.',
+      highlights: [
+        'Thiết kế vòng lặp retrieve → đọc → trả lời.',
+        'Đánh giá độ tin cậy và xử lý khi không có tài liệu liên quan.',
+        'Tối ưu độ trễ và chi phí khi mở rộng kho tài liệu.',
+        'Thực hành agent RAG end-to-end.',
+      ],
+      details: {
+        audience: 'Developer LLM, kỹ sư ứng dụng tri thức và search.',
+        focus: 'RAG nâng cao, agent, orchestration.',
+        format: 'Instructor-led workshop.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Building Agentic AI Applications with LLMs',
       duration: '8 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-agentic-ai-applications-with-llms/',
+      summary:
+        'Ứng dụng AI dạng tác tử: lập kế hoạch đa bước, gọi API/công cụ, bộ nhớ và giám sát vòng lặp. Khóa giúp bạn cấu trúc ứng dụng phức tạp hơn một lần gọi prompt đơn—phù hợp tự động hóa quy trình nghiệp vụ.',
+      highlights: [
+        'Phân biệt workflow cố định và hành vi thích ứng của agent.',
+        'Thiết kế tool use an toàn và có giới hạn.',
+        'Theo dõi, log và khắc phục lỗi trong hệ nhiều bước.',
+        'Thực hành kịch bản agentic.',
+      ],
+      details: {
+        audience: 'Kỹ sư xây dựng agent, developer automation thông minh.',
+        focus: 'Agentic AI, LLM + tools, luồng đa bước.',
+        format: 'Workshop DLI.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Introduction to Deploying RAG Pipelines for Production at Scale',
       duration: '8 giờ',
       href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-07+V1',
+      summary:
+        'Góc nhìn triển khai RAG trong môi trường production: khả năng mở rộng, giám sát chất lượng, cập nhật chỉ mục, HA và chi phí. Bổ sung cho các khóa RAG “phòng lab” bằng yêu cầu vận hành thực tế.',
+      highlights: [
+        'Kiến trúc pipeline RAG phục vụ nhiều người dùng.',
+        'Giám sát retrieval, độ trễ và lỗi hallucination.',
+        'Chiến lược cập nhật tri thức và rollback.',
+        'Thực hành/bài tập theo đề cương khóa.',
+      ],
+      details: {
+        audience: 'MLOps, kỹ sư backend AI và đội triển khai platform.',
+        focus: 'RAG production, scale, vận hành.',
+        format: 'Khóa trên NVIDIA Learn (xem trang course).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'AI Infrastructure Professional Workshop',
       duration: '28 giờ',
       href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/ai-infrastructure-professional/',
+      summary:
+        'Workshop chuyên sâu và dài ngày về hạ tầng AI: thiết kế cluster GPU, mạng và lưu trữ, orchestration, tối ưu cho huấn luyện và inference quy mô lớn. Phù hợp kỹ sư hạ tầng, kiến trúc sư giải pháp chuẩn bị chứng chỉ hoặc dự án trung tâm dữ liệu AI.',
+      highlights: [
+        'Thiết kế và vận hành cụm GPU cho workload AI.',
+        'Mạng, lưu trữ và độ tin cậy cho huấn luyện phân tán.',
+        'Tối ưu chi phí và hiệu năng theo SLA.',
+        'Thực hành tình huống gần với triển khai thực tế.',
+      ],
+      details: {
+        audience: 'Kỹ sư hạ tầng, kiến trúc sư cloud/DC, DevOps/SRE mảng AI.',
+        focus: 'AI infrastructure, cluster GPU, vận hành quy mô lớn.',
+        format: 'Workshop nhiều ngày (28 giờ), instructor-led; lịch theo NVIDIA.',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'AI Operations Professional Public Training',
       duration: '24 giờ',
       href: 'https://academy.nvidia.com/en/ai-operations-public-training/',
+      summary:
+        'Đào tạo tập trung vận hành hệ thống AI trong production: giám sát mô hình, pipeline, sự cố, bảo mật vận hành và quy trình cập nhật. Phù hợp đội vận hành platform AI/MLOps và người chuẩn bị chứng chỉ AI Operations.',
+      highlights: [
+        'Vận hành inference và huấn luyện liên tục an toàn.',
+        'Quan sát hiệu năng, drift và cảnh báo.',
+        'Phối hợp với nhóm phát triển và hạ tầng.',
+        'Nội dung căn chỉnh với yêu cầu nghề nghiệp AI Ops.',
+      ],
+      details: {
+        audience: 'AI Ops, SRE, quản trị nền tảng ML/LLM trong doanh nghiệp.',
+        focus: 'Vận hành AI production, quy trình và giám sát.',
+        format: 'Chương trình public training trên NVIDIA Academy (24 giờ).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Cumulus Linux Bootcamp',
       duration: '12 giờ',
       href: 'https://academy.nvidia.com/en/course/cumulus-linux-bootcamp/',
+      summary:
+        'Bootcamp về hệ điều hành mạng Cumulus Linux (Linux cho switch): cấu hình cổng, VLAN, routing cơ bản, automation với Ansible và mô hình triển khai phổ biến. Phù hợp quản trị mạng chuyển sang kiến trúc mở và tự động hóa.',
+      highlights: [
+        'Làm quen CLI và mô hình cấu hình Cumulus Linux.',
+        'Thiết lập kết nối và phân đoạn mạng trong lab.',
+        'Giới thiệu tự động hóa triển khai.',
+        'Thực hành theo kịch bản bootcamp.',
+      ],
+      details: {
+        audience: 'Kỹ sư mạng, admin hạ tầng và người mới với NOS dạng Linux.',
+        focus: 'Cumulus Linux, vận hành switch, nền tảng cho fabric hiện đại.',
+        format: 'Khóa trên NVIDIA Academy (thời lượng và lịch theo trang).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'InfiniBand Network Administration',
       duration: '6 giờ',
       href: 'https://academy.nvidia.com/en/course/ib-pro-online/',
+      summary:
+        'Quản trị mạng InfiniBand phục vụ HPC và AI: topology, subnet manager, khắc phục sự cố liên kết và tối ưu cho workload đòi hỏi băng thông thấp độ trễ. Phù hợp admin vận hành cluster GPU hoặc siêu máy tính.',
+      highlights: [
+        'Kiến trúc IB và vai trò trong cluster hiệu năng cao.',
+        'Thao tác quản trị cơ bản và giám sát.',
+        'Xử lý lỗi thường gặp ở tầng liên kết.',
+        'Liên hệ với yêu cầu huấn luyện AI phân tán.',
+      ],
+      details: {
+        audience: 'Quản trị mạng HPC/AI, kỹ sư hạ tầng trung tâm dữ liệu.',
+        focus: 'InfiniBand, vận hành và tối ưu cho cluster.',
+        format: 'Khóa online trên NVIDIA Academy (6 giờ).',
+        language: 'Tiếng Anh.',
+      },
     },
     {
       name: 'Spectrum-X Networking Platform Administration',
       duration: '12 giờ',
       href: 'https://academy.nvidia.com/en/course/spectrum-x-networking-platform-administration/',
+      summary:
+        'Quản trị nền tảng mạng Spectrum-X cho AI cloud và cluster: tích hợp chuyển mạch Spectrum, tối ưu east-west traffic cho huấn luyện phân tán và dịch vụ GPU. Phù hợp đội mạng hỗ trợ nền tảng AI quy mô lớn.',
+      highlights: [
+        'Tổng quan kiến trúc Spectrum-X và thành phần.',
+        'Thao tác quản trị và giám sát theo kịch bản khóa.',
+        'Liên kết với yêu cầu băng thông và độ trễ của workload AI.',
+        'Thực hành/bài lab theo chương trình Academy.',
+      ],
+      details: {
+        audience: 'Kỹ sư mạng cao cấp, admin nền tảng AI và cloud.',
+        focus: 'Spectrum-X, Ethernet cho AI, vận hành platform.',
+        format: 'Khóa NVIDIA Academy (12 giờ).',
+        language: 'Tiếng Anh.',
+      },
     },
   ]
 
@@ -465,43 +762,101 @@ export function CoursesSection() {
       </section>
 
       {/* Section 3: Các khóa học hiện có */}
-      <section className="py-12 md:py-16 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8">
+      <section className="py-12 md:py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8 leading-tight">
             Các khóa học hiện có
           </h2>
-          <div className="overflow-x-auto bg-white rounded-lg shadow">
-            <table className="w-full min-w-[640px] text-left text-sm">
-              <thead className="bg-gray-100 border-b">
-                <tr>
-                  <th className="px-6 py-4 font-bold text-gray-900">#</th>
-                  <th className="px-6 py-4 font-bold text-gray-900">Tên khóa học Tiếng Anh</th>
-                  <th className="px-6 py-4 font-bold text-gray-900">Khoảng thời gian</th>
-                </tr>
-              </thead>
-              <tbody>
-                {availableCourses.map((course, idx) => (
-                  <tr key={course.href} className="border-b hover:bg-gray-50 transition">
-                    <td className="px-6 py-4 font-semibold text-gray-900">{idx + 1}</td>
-                    <td className="px-6 py-4">
-                      <a
-                        href={course.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group inline-flex items-start gap-1.5 font-semibold text-gray-700 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 rounded"
-                      >
+          <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
+            Mỗi mục mở ra mô tả chi tiết về workshop; liên kết dẫn tới trang khóa học chính thức của NVIDIA để xem đề cương đầy đủ, lịch khai giảng và đăng ký.
+          </p>
+          <div className="space-y-3">
+            {availableCourses.map((course, idx) => {
+              const itemId = `course-${idx}`
+              return (
+                <div
+                  key={course.href}
+                  className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenCourseIndex(openCourseIndex === itemId ? null : itemId)}
+                    className="w-full flex items-center justify-between gap-3 p-4 sm:p-5 hover:bg-gray-50 transition text-left"
+                  >
+                    <span className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 min-w-0 flex-1">
+                      <span className="text-xs font-semibold text-blue-600 shrink-0 w-8">
+                        {idx + 1}.
+                      </span>
+                      <span className="text-sm sm:text-base text-gray-800 font-medium leading-snug">
                         {course.name}
-                        <ExternalLink
-                          className="h-4 w-4 shrink-0 mt-0.5 text-blue-500 opacity-70 group-hover:opacity-100"
-                          aria-hidden
-                        />
-                      </a>
-                    </td>
-                    <td className="px-6 py-4 text-gray-700">{course.duration}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      </span>
+                      <span className="inline-flex items-center self-start sm:self-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
+                        {course.duration}
+                      </span>
+                    </span>
+                    <ChevronDown
+                      size={20}
+                      className={`text-gray-400 shrink-0 transition ${
+                        openCourseIndex === itemId ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  {openCourseIndex === itemId && (
+                    <div className="bg-gray-50 border-t border-gray-200">
+                      <div className="grid grid-cols-1 md:grid-cols-3">
+                        <div className="md:col-span-2 px-4 sm:px-5 py-4 md:border-r md:border-gray-200 bg-white">
+                          <p className="text-gray-600 text-sm leading-7">{course.summary}</p>
+                          <div className="mt-5">
+                            <p className="text-gray-600 text-sm mb-3">
+                              Nội dung nổi bật của workshop:
+                            </p>
+                            <ul className="space-y-2 text-gray-600 text-sm">
+                              {course.highlights.map((highlight, hIdx) => (
+                                <li
+                                  key={`${itemId}-h-${hIdx}`}
+                                  className="border-t border-gray-200 pt-2 first:border-t-0 first:pt-0"
+                                >
+                                  • {highlight}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="px-4 sm:px-5 py-4 bg-gray-50">
+                          <div className="space-y-3 text-sm text-gray-700">
+                            <p>
+                              <span className="font-semibold">Đối tượng phù hợp:</span>{' '}
+                              {course.details.audience}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Trọng tâm nội dung:</span> {course.details.focus}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Hình thức &amp; lưu ý:</span> {course.details.format}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Ngôn ngữ:</span> {course.details.language}
+                            </p>
+                            <p>
+                              <span className="font-semibold">Thời lượng:</span> {course.duration}
+                            </p>
+                            <a
+                              href={course.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-2 inline-flex items-center gap-1.5 rounded bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-700 transition"
+                            >
+                              Trang khóa học NVIDIA
+                              <ExternalLink className="h-3.5 w-3.5 opacity-90" aria-hidden />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
