@@ -1,41 +1,176 @@
 'use client'
 
 import Image from 'next/image'
+import { ExternalLink } from 'lucide-react'
 
 export function CoursesSection() {
   const courses = [
-    { name: 'NCP-AII (Professional AI Infrastructure)', duration: '180 phút' },
-    { name: 'NCP-AIO (Professional AI Operations)', duration: '180 phút' },
-    { name: 'NCA-AIIO (Associate AI Infrastructure and Operations)', duration: '120 phút' },
-    { name: 'NCP-ADS (Professional Accelerated Data Science)', duration: '180 phút' },
-    { name: 'NCP-GENL (Professional Generative AI LLMs)', duration: '180 phút' },
-    { name: 'NCP-AAI (Professional Agentic AI)', duration: '180 phút' },
-    { name: 'NCA-GENL (Associate Generative AI LLM)', duration: '120 phút' },
-    { name: 'NCA-GENM (Associate Generative AI Multimodal)', duration: '120 phút' },
-    { name: 'NCP-OUSD (Professional OpenUSD Development)', duration: '180 phút' },
+    {
+      name: 'NCP-AII (Professional AI Infrastructure)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-professional/',
+      description:
+        'Đánh giá năng lực thiết kế, triển khai và vận hành hạ tầng AI/GPU trong môi trường trung tâm dữ liệu và điện toán hiệu năng cao.',
+    },
+    {
+      name: 'NCP-AIO (Professional AI Operations)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/ai-operations-professional/',
+      description:
+        'Tập trung vào giám sát, tối ưu và đảm bảo vận hành hệ thống AI trong môi trường production.',
+    },
+    {
+      name: 'NCA-AIIO (Associate AI Infrastructure and Operations)',
+      duration: '120 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/ai-networking-professional/',
+      description:
+        'Cấp Associate: nền tảng về hạ tầng và vận hành AI, phù hợp vai trò phối hợp và hỗ trợ kỹ thuật.',
+    },
+    {
+      name: 'NCP-ADS (Professional Accelerated Data Science)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/accelerated-data-science-professional/',
+      description:
+        'Khoa học dữ liệu tăng tốc trên GPU: pipeline, mô hình và phân tích quy mô lớn với stack NVIDIA.',
+    },
+    {
+      name: 'NCP-GENL (Professional Generative AI LLMs)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-professional/',
+      description:
+        'Chuyên sâu về LLM và ứng dụng GenAI: triển khai, tinh chỉnh và tích hợp trong hệ thống thực tế.',
+    },
+    {
+      name: 'NCP-AAI (Professional Agentic AI)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/agentic-ai-professional/',
+      description:
+        'Hệ thống tác tử AI, quy trình agentic và tích hợp mô hình trong luồng công việc tự động hóa.',
+    },
+    {
+      name: 'NCA-GENL (Associate Generative AI LLM)',
+      duration: '120 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/generative-ai-llm-associate/',
+      description:
+        'Cấp Associate: kiến thức nền về GenAI và LLM, phù hợp người mới bước vào lĩnh vực ứng dụng AI sinh.',
+    },
+    {
+      name: 'NCA-GENM (Associate Generative AI Multimodal)',
+      duration: '120 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/',
+      description:
+        'Nền tảng về mô hình đa phương thức (văn bản, hình ảnh, âm thanh) và ứng dụng GenAI liên kết.',
+    },
+    {
+      name: 'NCP-OUSD (Professional OpenUSD Development)',
+      duration: '180 phút',
+      href: 'https://www.nvidia.com/en-us/learn/certification/openusd-development-professional/',
+      description:
+        'Phát triển với OpenUSD: mô phỏng, nội dung 3D và quy trình kỹ thuật số trong hệ sinh thái NVIDIA.',
+    },
   ]
 
   const availableCourses = [
-    { name: 'Fundamentals of Deep Learning', duration: '8 giờ' },
-    { name: 'Fundamentals of Accelerated Data Science', duration: '8 giờ' },
-    { name: 'Building Transformer-Based Natural Language Processing Applications', duration: '8 giờ' },
-    { name: 'Building LLM Applications with Prompt Engineering', duration: '8 giờ' },
-    { name: 'Rapid Application Development With Large Language Models (LLMs)', duration: '8 giờ' },
-    { name: 'Building Conversational AI Applications', duration: '8 giờ' },
-    { name: 'Generative AI With Diffusion Models', duration: '8 giờ' },
-    { name: 'Building AI Agents with Multimodal Models', duration: '8 giờ' },
-    { name: 'Accelerating End-to-End Data Science Workflows', duration: '6 giờ' },
-    { name: 'Enhancing Data Science Outcomes With Efficient Workflow', duration: '8 giờ' },
-    { name: 'Adding New Knowledge to LLMs', duration: '8 giờ' },
-    { name: 'Model Parallelism: Building and Deploying Large Neural Networks', duration: '8 giờ' },
-    { name: 'Building RAG Agents with LLMs', duration: '8 giờ' },
-    { name: 'Building Agentic AI Applications With LLMs', duration: '8 giờ' },
-    { name: 'Introduction to Deploying RAG Pipelines for Production at Scale', duration: '8 giờ' },
-    { name: 'AI Infrastructure Professional Public Training', duration: '28 giờ' },
-    { name: 'AI Operations Professional Public Training', duration: '24 giờ' },
-    { name: 'Cumulus Linux Public Bootcamp', duration: '12 giờ' },
-    { name: 'InfiniBand Network Administration', duration: '6 giờ' },
-    { name: 'Spectrum-X Networking Platform Administration', duration: '12 giờ' },
+    {
+      name: 'Fundamentals of Deep Learning',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-deep-learning/',
+    },
+    {
+      name: 'Fundamentals of Accelerated Data Science',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/fundamentals-of-accelerated-data-science/',
+    },
+    {
+      name: 'Building Transformer-Based NLP Applications',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/natural-language-processing/',
+    },
+    {
+      name: 'Building LLM Applications with Prompt Engineering',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-llm-applications-with-prompt-engineering/',
+    },
+    {
+      name: 'Rapid Application Development with LLMs',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/rapid-application-development-with-llms/',
+    },
+    {
+      name: 'Building Conversational AI Applications',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-conversational-ai-applications/',
+    },
+    {
+      name: 'Generative AI with Diffusion Models',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/generative-ai-with-diffusion-models/',
+    },
+    {
+      name: 'Building AI Agents with Multimodal Models',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-ai-agents-with-multimodal-models/',
+    },
+    {
+      name: 'Accelerating End-to-End Data Science Workflows',
+      duration: '6 giờ',
+      href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-02+V1',
+    },
+    {
+      name: 'Enhancing Data Science Outcomes with Efficient Workflow',
+      duration: '8 giờ',
+      href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-04+V1',
+    },
+    {
+      name: 'Adding New Knowledge to LLMs',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/adding-new-knowledge-to-llms/',
+    },
+    {
+      name: 'Model Parallelism: Building and Deploying Large Neural Networks',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/model-parallelism/',
+    },
+    {
+      name: 'Building RAG Agents with LLMs',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-rag-agents-with-llms/',
+    },
+    {
+      name: 'Building Agentic AI Applications with LLMs',
+      duration: '8 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/building-agentic-ai-applications-with-llms/',
+    },
+    {
+      name: 'Introduction to Deploying RAG Pipelines for Production at Scale',
+      duration: '8 giờ',
+      href: 'https://learn.nvidia.com/courses/course-detail?course_id=course-v1:DLI+C-DS-07+V1',
+    },
+    {
+      name: 'AI Infrastructure Professional Workshop',
+      duration: '28 giờ',
+      href: 'https://www.nvidia.com/en-us/training/instructor-led-workshops/ai-infrastructure-professional/',
+    },
+    {
+      name: 'AI Operations Professional Public Training',
+      duration: '24 giờ',
+      href: 'https://academy.nvidia.com/en/ai-operations-public-training/',
+    },
+    {
+      name: 'Cumulus Linux Bootcamp',
+      duration: '12 giờ',
+      href: 'https://academy.nvidia.com/en/course/cumulus-linux-bootcamp/',
+    },
+    {
+      name: 'InfiniBand Network Administration',
+      duration: '6 giờ',
+      href: 'https://academy.nvidia.com/en/course/ib-pro-online/',
+    },
+    {
+      name: 'Spectrum-X Networking Platform Administration',
+      duration: '12 giờ',
+      href: 'https://academy.nvidia.com/en/course/spectrum-x-networking-platform-administration/',
+    },
   ]
 
   return (
@@ -91,26 +226,41 @@ export function CoursesSection() {
           <h2 className="text-2xl sm:text-3xl font-bold text-blue-600 text-center mb-6 md:mb-8">
             Các chứng chỉ hiện có
           </h2>
-          <div className="overflow-x-auto bg-white rounded-lg shadow">
-            <table className="w-full min-w-[640px] text-left text-sm">
-              <thead className="bg-gray-100 border-b">
-                <tr>
-                  <th className="px-6 py-4 font-bold text-gray-900">#</th>
-                  <th className="px-6 py-4 font-bold text-gray-900">Tên khóa học Tiếng Anh</th>
-                  <th className="px-6 py-4 font-bold text-gray-900">Khoảng thời gian</th>
-                </tr>
-              </thead>
-              <tbody>
-                {courses.map((course, idx) => (
-                  <tr key={idx} className="border-b hover:bg-gray-50 transition">
-                    <td className="px-6 py-4 font-semibold text-gray-900">{idx + 1}</td>
-                    <td className="px-6 py-4 text-gray-700 font-semibold">{course.name}</td>
-                    <td className="px-6 py-4 text-gray-700">{course.duration}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <p className="text-center text-gray-600 text-sm max-w-2xl mx-auto mb-8">
+            Mỗi chứng chỉ dẫn tới trang chính thức của NVIDIA để xem chi tiết chương trình và đăng ký thi.
+          </p>
+          <ul className="grid gap-4 sm:gap-5 md:grid-cols-2">
+            {courses.map((course, idx) => (
+              <li
+                key={course.href}
+                className="bg-white rounded-lg border border-gray-200 shadow-sm p-5 sm:p-6 flex flex-col gap-3 hover:border-blue-200 hover:shadow-md transition"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-sm font-bold text-blue-600">
+                    {idx + 1}
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700">
+                    {course.duration}
+                  </span>
+                </div>
+                <a
+                  href={course.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group font-semibold text-gray-900 text-sm sm:text-base leading-snug hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 rounded"
+                >
+                  <span className="inline-flex items-start gap-1.5">
+                    {course.name}
+                    <ExternalLink
+                      className="h-4 w-4 shrink-0 mt-0.5 text-blue-500 opacity-70 group-hover:opacity-100"
+                      aria-hidden
+                    />
+                  </span>
+                </a>
+                <p className="text-gray-600 text-sm leading-relaxed flex-1">{course.description}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -131,9 +281,22 @@ export function CoursesSection() {
               </thead>
               <tbody>
                 {availableCourses.map((course, idx) => (
-                  <tr key={idx} className="border-b hover:bg-gray-50 transition">
+                  <tr key={course.href} className="border-b hover:bg-gray-50 transition">
                     <td className="px-6 py-4 font-semibold text-gray-900">{idx + 1}</td>
-                    <td className="px-6 py-4 text-gray-700 font-semibold">{course.name}</td>
+                    <td className="px-6 py-4">
+                      <a
+                        href={course.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-start gap-1.5 font-semibold text-gray-700 hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 rounded"
+                      >
+                        {course.name}
+                        <ExternalLink
+                          className="h-4 w-4 shrink-0 mt-0.5 text-blue-500 opacity-70 group-hover:opacity-100"
+                          aria-hidden
+                        />
+                      </a>
+                    </td>
                     <td className="px-6 py-4 text-gray-700">{course.duration}</td>
                   </tr>
                 ))}
@@ -203,7 +366,7 @@ export function CoursesSection() {
                 💬 Các khóa đào tạo về Trí tuệ nhân tạo hiện đã mở đăng ký...
               </p>
               <a
-                href="https://nvdam.widen.net/s/brxsxxtskb/dli-learning-journey-2009000-r5-web"
+                href="https://forms.gle/WJ9TTBp5pVJ8ggjU9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-6 rounded transition text-sm text-center"

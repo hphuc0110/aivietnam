@@ -18,7 +18,7 @@ export function Header() {
       ],
     },
     {
-      label: 'Khóa học',
+      label: 'Chứng chỉ',
       href: '#',
       subItems: [
         { label: 'NCP-AII (Professional AI Infrastructure)', href: 'https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-professional/' },
