@@ -9,14 +9,14 @@ export function TestimonialsSection() {
       name: ' TS. Nguyễn Nhất Hải',
       title: 'Giảng viên tại bộ môn Công nghệ phần mềm, viện Công nghệ thông tin và truyền thông tại Đại học Bách Khoa Hà Nội.',
       image: '/teacher/hai.jpg',
-      scholarUrl: 'https://scholar.google.com/citations?user=zmtZGk0AAAAJ&hl=vi',
+      scholarUrl: 'https://soict.hust.edu.vn/ts-nguyen-nhat-hai.html',
       bio: 'TS.Hải nhận bằng  Tiến sĩ công nghệ thông tin, điều khiển và xử lý tín hiệu tại trường Đại học Bách Khoa Grenoble, Cộng hòa Pháp. TS. Hải cũng đã có 1 năm nghiên cứu sau Tiến sĩ tại France Telecom. Lĩnh vực nghiên cứu của TS. Hải bao gồm các lĩnh vực như xử lý ngôn ngữ tự nhiên, thị giác máy tính, hệ thống phân tán.',
     },
     {
       name: ' GS. TSKH. Trần Hoài Linh',
       title: 'Giảng viên cao cấp hạng I, Giáo Sư, Tiến sỹ Khoa học Trường Điện - Điện tử',
-      image: '/teacher/linh.webp',
-      scholarUrl: 'https://scholar.google.com/citations?user=PyNoVbMAAAAJ',
+      image: '/teacher/linh.jpg',
+      scholarUrl: 'https://seee.hust.edu.vn/vi/suborgans/person/Khoa-Tu-dong-hoa-5/GS-TS-Tran-Hoai-Linh-64/',
       bio: 'Ông Trần Hoài Linh nhận học vị Tiến sĩ Khoa học về Kỹ thuật điện và Trí tuệ nhân tạo năm 2005 của Trường Đại học Bách Khoa Vác-sa-va (CH Ba Lan), học vị Tiến sĩ về Kỹ thuật điện tại Trường Đại học Bách Khoa Vác-sa-va (CH Ba Lan) năm 2000. Hiện tại Ông Trần Hoài Linh là Giáo sư, Giảng viên cao cấp tại Khoa Tự động hóa, Trường Điện - Điện tử, Đại học Bách khoa Hà Nội. Các hướng nghiên cứu quan tâm hiện tại bao gồm: Trí tuệ nhân tạo và ứng dụng trong xử lý tín hiệu, Hệ thống thông minh, Lưới điện thông minh.',
     },
     {
