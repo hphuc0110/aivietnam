@@ -6,24 +6,6 @@ import { Star } from 'lucide-react'
 export function TestimonialsSection() {
   const experts = [
     {
-      name: 'ThS. Lê Trần Ngọc Trân',
-      title: ' Đại sứ Đại học của NVIDIA tại Việt Nam',
-      image: '/teacher/tran.webp',
-      bio: 'Đại sứ Đại học NVIDIA là danh hiệu dành cho những giảng viên hoàn thành chương trình University Ambassador Program – một khóa đào tạo chuyên sâu do NVIDIA tổ chức nhằm phổ cập kiến thức và kỹ năng về trí tuệ nhân tạo (AI), khoa học dữ liệu và điện toán tăng tốc.',
-    },
-    {
-      name: 'TS. Vũ Hoài Nam',
-      title: 'Giảng viên Khoa Trí tuệ nhân tạo tại Học viện Công nghệ Bưu chính Viễn thông (PTIT)',
-      image: '/teacher/nam.jpg',
-      bio: 'Đại sứ của University Ambassador sau khi ông vượt qua kỳ sát hạch chuyên môn của hãng.',
-    },
-    {
-      name: ' TS. Đặng Hoàng Long',
-      title: 'Giảng viên khoa Công nghệ thông tin 1 tại Học viện Công nghệ Bưu chính Viễn thông (PTIT)',
-      image: '/teacher/long.jpg',
-      bio: 'các đại sứ NVIDIA sẽ là đại diện của NVIDIA tại các trường Đại học, sử dụng tài nguyên của NVIDIA để triển khai các khóa học về AI do NVIDIA cấp chứng chỉ.',
-    },
-    {
       name: ' TS. Nguyễn Nhất Hải',
       title: 'Giảng viên tại bộ môn Công nghệ phần mềm, viện Công nghệ thông tin và truyền thông tại Đại học Bách Khoa Hà Nội.',
       image: '/teacher/hai.jpg',
