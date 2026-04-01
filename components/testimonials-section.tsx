@@ -14,14 +14,14 @@ export function TestimonialsSection() {
     },
     {
       name: ' GS. TSKH. Trần Hoài Linh',
-      title: 'Giảng viên cao cấp hạng I, Giáo Sư, Tiến sỹ Khoa học Trường Điện - Điện tử',
+      title: 'Giảng viên cao cấp hạng I, Giáo Sư, Tiến sỹ Khoa học Trường Điện - Điện tử tại Đại học Bách Khoa Hà Nội',
       image: '/teacher/linh.jpg',
       scholarUrl: 'https://seee.hust.edu.vn/vi/suborgans/person/Khoa-Tu-dong-hoa-5/GS-TS-Tran-Hoai-Linh-64/',
       bio: 'Ông Trần Hoài Linh nhận học vị Tiến sĩ Khoa học về Kỹ thuật điện và Trí tuệ nhân tạo năm 2005 của Trường Đại học Bách Khoa Vác-sa-va (CH Ba Lan), học vị Tiến sĩ về Kỹ thuật điện tại Trường Đại học Bách Khoa Vác-sa-va (CH Ba Lan) năm 2000. Hiện tại Ông Trần Hoài Linh là Giáo sư, Giảng viên cao cấp tại Khoa Tự động hóa, Trường Điện - Điện tử, Đại học Bách khoa Hà Nội. Các hướng nghiên cứu quan tâm hiện tại bao gồm: Trí tuệ nhân tạo và ứng dụng trong xử lý tín hiệu, Hệ thống thông minh, Lưới điện thông minh.',
     },
     {
       name: ' Nguyễn Thị Thu',
-      title: 'Nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Khoa học và Công nghệ Hà Nội (HUST).',
+      title: 'Nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Bách Khoa Hà Nội (HUST).',
       image: '/teacher/thu.jpg',
       scholarUrl: 'https://scholar.google.com/citations?user=FtFck0UAAAAJ&hl=en',
       bio: 'Cô là nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Khoa học và Công nghệ Hà Nội (HUST). Lĩnh vực nghiên cứu của cô bao gồm ứng dụng Mô hình Ngôn ngữ Lớn trong các lĩnh vực cụ thể để nâng cao khả năng hiểu ngữ cảnh, Trí tuệ Nhân tạo Tạo sinh trong Tin sinh học.',
