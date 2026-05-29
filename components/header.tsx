@@ -33,6 +33,7 @@ export function Header() {
       ],
     },
     { label: 'Trung tâm Tin tức', href: '/news' },
+    { label: 'Sự kiện', href: '/events' },
     {
       label: 'Dịch vụ hỗ trợ',
       href: '#',
@@ -148,6 +149,7 @@ export function Header() {
                 ) : (
                   <Link
                     href={'href' in item && item.href ? item.href : '/'}
+                    onClick={() => setIsOpen(false)}
                     className="w-full block text-sm text-gray-700 py-2 px-4 hover:bg-gray-100"
                   >
                     {item.label}
@@ -162,6 +164,7 @@ export function Header() {
                         href={subItem.href}
                         target={subItem.href.startsWith('http') ? '_blank' : undefined}
                         rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        onClick={() => setIsOpen(false)}
                         className="block py-2 px-4 text-sm text-gray-600 hover:bg-gray-100"
                       >
                         {subItem.label}
