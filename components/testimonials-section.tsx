@@ -24,7 +24,7 @@ export function TestimonialsSection() {
       title: 'Nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Bách Khoa Hà Nội (HUST).',
       image: '/teacher/thu.jpg',
       scholarUrl: 'https://scholar.google.com/citations?user=FtFck0UAAAAJ&hl=en',
-      bio: 'Cô là nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Khoa học và Công nghệ Hà Nội (HUST). Lĩnh vực nghiên cứu của cô bao gồm ứng dụng Mô hình Ngôn ngữ Lớn trong các lĩnh vực cụ thể để nâng cao khả năng hiểu ngữ cảnh, Trí tuệ Nhân tạo Tạo sinh trong Tin sinh học.',
+      bio: 'Cô là nhà nghiên cứu Trí tuệ Nhân tạo tại Viện Đổi mới Trí tuệ Nhân tạo và Tác động Xã hội (AI4LIFE), Đại học Bách khoa Hà Nội (HUST). Lĩnh vực nghiên cứu của cô bao gồm ứng dụng Mô hình Ngôn ngữ Lớn trong các lĩnh vực cụ thể để nâng cao khả năng hiểu ngữ cảnh, Trí tuệ Nhân tạo Tạo sinh trong Tin sinh học.',
     },
   ]
 
