@@ -1,20 +1,9 @@
-'use client'
-
-import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { EVENT_ITEMS, type EventItem } from '@/lib/events-data'
-import { EventRegisterDialog } from '@/components/event-register-dialog'
+import { EVENT_ITEMS } from '@/lib/events-data'
 
 export function EventsPageSection() {
-  const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null)
-  const [registerOpen, setRegisterOpen] = useState(false)
-
-  function openRegister(event: EventItem) {
-    setSelectedEvent(event)
-    setRegisterOpen(true)
-  }
-
   return (
     <section className="py-10 sm:py-12 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -23,17 +12,16 @@ export function EventsPageSection() {
             Sự kiện
           </h1>
           <p className="text-gray-600 text-[15px] sm:text-base max-w-3xl mx-auto leading-relaxed px-1">
-            Khám phá các sự kiện sắp diễn ra. Chọn sự kiện và đăng ký tham gia.
+          Danh sách các sự kiện đã, đang và sắp diễn ra của Học viện AI cho Việt Nam (VAIA). Hãy lựa chọn chương trình bạn quan tâm để tìm hiểu chi tiết và đăng ký tham gia.
           </p>
         </div>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 list-none p-0 m-0">
           {EVENT_ITEMS.map((event) => (
             <li key={event.id}>
-              <button
-                type="button"
-                onClick={() => openRegister(event)}
-                className="group flex flex-col h-full w-full rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5 text-left transition-colors hover:border-blue-300 hover:bg-blue-50/60 active:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 touch-manipulation min-h-min cursor-pointer"
+              <Link
+                href={`/events/${event.id}`}
+                className="group flex flex-col h-full rounded-2xl border border-gray-200 bg-gray-50 p-4 sm:p-5 text-left transition-colors hover:border-blue-300 hover:bg-blue-50/60 active:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 touch-manipulation min-h-min"
               >
                 <div className="relative w-full aspect-square rounded-xl overflow-hidden border border-gray-200 mb-4 bg-gray-100">
                   <Image
@@ -62,20 +50,14 @@ export function EventsPageSection() {
                   </p>
                 )}
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-600 group-hover:text-blue-700">
-                  Đăng ký ngay
+                  Xem chi tiết & đăng ký
                   <ArrowRight className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
                 </span>
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
       </div>
-
-      <EventRegisterDialog
-        event={selectedEvent}
-        open={registerOpen}
-        onOpenChange={setRegisterOpen}
-      />
     </section>
   )
 }
