@@ -112,7 +112,7 @@ export function EventDetailSection({ event }: EventDetailSectionProps) {
 
       <EventContent blocks={event.content} eventId={event.id} />
 
-      <div className="mt-8 flex justify-center sm:justify-start">
+      {/* <div className="mt-8 flex justify-center sm:justify-start">
         <Button
           type="button"
           size="lg"
@@ -122,7 +122,7 @@ export function EventDetailSection({ event }: EventDetailSectionProps) {
           Đăng ký tham gia
           <ArrowRight className="size-5 ml-1" aria-hidden />
         </Button>
-      </div>
+      </div> */}
 
       <section className="mt-10 sm:mt-12 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8 text-center">
         <h2 className="text-lg sm:text-xl font-bold text-gray-900">
