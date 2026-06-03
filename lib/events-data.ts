@@ -17,7 +17,7 @@ export type EventItem = {
 
 export const EVENT_ITEMS: EventItem[] = [
   {
-    id: 'workshop-ai-thuc-chien',
+    id: 'toa-dam-nhan-luc-ai',
     title: 'TỌA ĐÀM: NÂNG TẦM NHÂN LỰC CHO DOANH NGHIỆP TRONG KỶ NGUYÊN AI',
     date: '08/06/2026 (Thứ Hai)',
     category: 'Tọa đàm',
