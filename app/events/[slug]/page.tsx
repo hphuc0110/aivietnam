@@ -3,7 +3,9 @@ import { notFound } from 'next/navigation'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { EventDetailSection } from '@/components/event-detail-section'
+import { MetaPixel } from '@/components/meta-pixel'
 import { EVENT_ITEMS, getEventBySlug } from '@/lib/events-data'
+import { WORKSHOP_EVENT_SLUG } from '@/lib/meta-pixel'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -34,6 +36,7 @@ export default async function EventDetailPage({ params }: Props) {
 
   return (
     <main className="overflow-x-hidden min-h-screen flex flex-col bg-white">
+      {slug === WORKSHOP_EVENT_SLUG && <MetaPixel />}
       <Header />
       <EventDetailSection event={event} />
       <Footer />

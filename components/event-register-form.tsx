@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import type { EventItem } from '@/lib/events-data'
+import { trackMetaLead, WORKSHOP_EVENT_SLUG } from '@/lib/meta-pixel'
 
 type EventRegisterFormProps = {
   event: EventItem
@@ -56,6 +57,9 @@ export function EventRegisterForm({
       }
 
       toast.success('Đăng ký thành công! Chúng tôi sẽ liên hệ qua email hoặc số điện thoại.')
+      if (event.id === WORKSHOP_EVENT_SLUG) {
+        trackMetaLead()
+      }
       form.reset()
       onSuccess?.()
     } catch {
