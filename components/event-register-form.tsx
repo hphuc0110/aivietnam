@@ -17,6 +17,24 @@ type EventRegisterFormProps = {
   onSuccess?: () => void
 }
 
+type FormFields = {
+  fullName: string
+  email: string
+  phone: string
+  companyName: string
+  occupation: string
+  notes: string
+}
+
+const EMPTY_FORM: FormFields = {
+  fullName: '',
+  email: '',
+  phone: '',
+  companyName: '',
+  occupation: '',
+  notes: '',
+}
+
 export function EventRegisterForm({
   event,
   id = 'dang-ky',
@@ -25,32 +43,40 @@ export function EventRegisterForm({
   onSuccess,
 }: EventRegisterFormProps) {
   const [submitting, setSubmitting] = useState(false)
+  const [fields, setFields] = useState<FormFields>(EMPTY_FORM)
+
+  function updateField<K extends keyof FormFields>(key: K, value: FormFields[K]) {
+    setFields((current) => ({ ...current, [key]: value }))
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (submitting) return
 
-    const form = e.currentTarget
-    const data = new FormData(form)
-
     setSubmitting(true)
     try {
+      const payload = {
+        eventId: event.id,
+        eventTitle: event.title,
+        fullName: fields.fullName.trim(),
+        email: fields.email.trim(),
+        phone: fields.phone.trim(),
+        companyName: fields.companyName.trim(),
+        occupation: fields.occupation.trim(),
+        notes: fields.notes.trim(),
+      }
+
       const res = await fetch('/api/event-register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          eventId: event.id,
-          eventTitle: event.title,
-          fullName: String(data.get('fullName') ?? ''),
-          email: String(data.get('email') ?? ''),
-          phone: String(data.get('phone') ?? ''),
-          companyName: String(data.get('companyName') ?? ''),
-          occupation: String(data.get('occupation') ?? ''),
-          notes: String(data.get('notes') ?? ''),
-        }),
+        body: JSON.stringify(payload),
       })
 
-      const result = (await res.json()) as { success?: boolean; error?: string }
+      const result = (await res.json()) as {
+        success?: boolean
+        error?: string
+        scriptVersion?: string | null
+      }
 
       if (!res.ok || !result.success) {
         toast.error(result.error ?? 'Gửi đăng ký thất bại. Vui lòng thử lại.')
@@ -61,7 +87,7 @@ export function EventRegisterForm({
       if (hasMetaPixel(event.id)) {
         trackMetaLead(event.id)
       }
-      form.reset()
+      setFields(EMPTY_FORM)
       onSuccess?.()
     } catch {
       toast.error('Không gửi được đăng ký. Kiểm tra kết nối mạng và thử lại.')
@@ -78,8 +104,11 @@ export function EventRegisterForm({
           id="register-full-name"
           name="fullName"
           placeholder="Nguyễn Văn A"
+          autoComplete="name"
           required
           disabled={submitting}
+          value={fields.fullName}
+          onChange={(e) => updateField('fullName', e.target.value)}
         />
       </div>
       <div className="space-y-2">
@@ -89,8 +118,11 @@ export function EventRegisterForm({
           name="email"
           type="email"
           placeholder="email@example.com"
+          autoComplete="email"
           required
           disabled={submitting}
+          value={fields.email}
+          onChange={(e) => updateField('email', e.target.value)}
         />
       </div>
       <div className="space-y-2">
@@ -100,8 +132,11 @@ export function EventRegisterForm({
           name="phone"
           type="tel"
           placeholder="0901234567"
+          autoComplete="tel"
           required
           disabled={submitting}
+          value={fields.phone}
+          onChange={(e) => updateField('phone', e.target.value)}
         />
       </div>
       <div className="space-y-2">
@@ -112,6 +147,8 @@ export function EventRegisterForm({
           placeholder="Công ty TNHH ABC"
           autoComplete="organization"
           disabled={submitting}
+          value={fields.companyName}
+          onChange={(e) => updateField('companyName', e.target.value)}
         />
       </div>
       <div className="space-y-2">
@@ -120,8 +157,11 @@ export function EventRegisterForm({
           id="register-occupation"
           name="occupation"
           placeholder="Kỹ sư phần mềm"
+          autoComplete="organization-title"
           required
           disabled={submitting}
+          value={fields.occupation}
+          onChange={(e) => updateField('occupation', e.target.value)}
         />
       </div>
       <div className="space-y-2">
@@ -132,6 +172,8 @@ export function EventRegisterForm({
           placeholder="Nội dung ghi chú (không bắt buộc)"
           rows={3}
           disabled={submitting}
+          value={fields.notes}
+          onChange={(e) => updateField('notes', e.target.value)}
         />
       </div>
 

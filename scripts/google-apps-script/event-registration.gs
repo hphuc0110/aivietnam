@@ -2,11 +2,11 @@
  * Đăng ký sự kiện → Google Sheet
  *
  * Luôn ghi đúng 9 cột A→I. Deploy Web App sau mỗi lần sửa.
- * Kiểm tra deploy: mở URL Web App → phải có version "2026-06-05-v3".
+ * Kiểm tra deploy: mở URL Web App → phải có version "2026-06-05-v5".
  */
 
 var SHEET_NAME = 'Đăng ký tọa đàm';
-var SCRIPT_VERSION = '2026-06-05-v3';
+var SCRIPT_VERSION = '2026-06-05-v5';
 
 var HEADER_ROW = [
   'Thời gian',
@@ -22,6 +22,7 @@ var HEADER_ROW = [
 
 var COLUMN_COUNT = HEADER_ROW.length;
 var COMPANY_COLUMN = 7;
+var OCCUPATION_COLUMN = 8;
 
 function doGet() {
   var sheet = findRegistrationSheet(SpreadsheetApp.getActiveSpreadsheet());
@@ -48,7 +49,7 @@ function doPost(e) {
       return jsonResponse({ success: false, error: 'Unauthorized.' }, 401);
     }
 
-    if (!payload.fullName || !payload.email || !payload.phone || !payload.occupation) {
+    if (!payload.fullName || !payload.email || !payload.phone || !getOccupation(payload)) {
       return jsonResponse(
         { success: false, error: 'Thiếu thông tin bắt buộc (họ tên, email, SĐT, nghề nghiệp).' },
         400
@@ -57,6 +58,7 @@ function doPost(e) {
 
     var sheet = getOrCreateSheet();
     var company = getCompanyName(payload);
+    var occupation = getOccupation(payload);
     var now = Utilities.formatDate(
       new Date(),
       Session.getScriptTimeZone() || 'Asia/Ho_Chi_Minh',
@@ -71,6 +73,7 @@ function doPost(e) {
       sheetName: sheet.getName(),
       row: rowNumber,
       companySaved: company,
+      occupationSaved: occupation,
     });
   } catch (err) {
     return jsonResponse(
@@ -89,7 +92,7 @@ function buildRegistrationRecord(payload, timestamp) {
     Email: String(payload.email).trim(),
     'Số điện thoại': String(payload.phone).trim(),
     'Tên công ty': getCompanyName(payload),
-    'Nghề nghiệp': String(payload.occupation).trim(),
+    'Nghề nghiệp': getOccupation(payload),
     'Ghi chú': String(payload.notes || '').trim(),
   };
 }
@@ -101,9 +104,10 @@ function appendRegistrationRow(sheet, record) {
     return record[key] !== undefined ? record[key] : '';
   });
 
-  // Dùng appendRow — tránh getRange(row,1,row,9) bị hiểu là 9 hàng × row cột khi row > 9.
-  sheet.appendRow(row);
-  return sheet.getLastRow();
+  var nextRow = sheet.getLastRow() + 1;
+  // getRange(row, col, numRows, numCols) — không dùng getRange(row,1,row,9) (bị hiểu nhầm số hàng).
+  sheet.getRange(nextRow, 1, 1, COLUMN_COUNT).setValues([row]);
+  return nextRow;
 }
 
 function ensureStandardHeaders(sheet) {
@@ -153,9 +157,12 @@ function getCompanyName(payload) {
     payload.company ||
     payload.tenCongTy ||
     payload.congTy ||
-    payload.organization ||
     '';
   return String(value).trim();
+}
+
+function getOccupation(payload) {
+  return String(payload.occupation || payload.ngheNghiep || '').trim();
 }
 
 /**
@@ -240,6 +247,17 @@ function testWriteCompanyColumn() {
     'dd/MM/yyyy HH:mm:ss'
   );
   var rowNum = appendRegistrationRow(sheet, buildRegistrationRecord(testPayload, now));
-  var saved = sheet.getRange(rowNum, COMPANY_COLUMN).getValue();
-  Logger.log('Tab: ' + sheet.getName() + ', dòng ' + rowNum + ', cột G = "' + saved + '"');
+  var savedCompany = sheet.getRange(rowNum, COMPANY_COLUMN).getValue();
+  var savedOccupation = sheet.getRange(rowNum, OCCUPATION_COLUMN).getValue();
+  Logger.log(
+    'Tab: ' +
+      sheet.getName() +
+      ', dòng ' +
+      rowNum +
+      ', cột G = "' +
+      savedCompany +
+      '", cột H = "' +
+      savedOccupation +
+      '"'
+  );
 }
