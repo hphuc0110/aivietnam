@@ -6,6 +6,7 @@ export type EventRegistrationPayload = {
   fullName: string
   email: string
   phone: string
+  companyName?: string
   occupation: string
   notes?: string
 }
@@ -32,7 +33,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: 'Dữ liệu không hợp lệ.' }, { status: 400 })
   }
 
-  const { eventId, eventTitle, fullName, email, phone, occupation, notes } = body
+  const { eventId, eventTitle, fullName, email, phone, companyName, occupation, notes } = body
 
   if (!fullName?.trim() || !email?.trim() || !phone?.trim() || !occupation?.trim()) {
     return NextResponse.json(
@@ -52,6 +53,7 @@ export async function POST(request: Request) {
         fullName: fullName.trim(),
         email: email.trim(),
         phone: phone.trim(),
+        companyName: companyName?.trim() ?? '',
         occupation: occupation.trim(),
         notes: notes?.trim() ?? '',
       }),

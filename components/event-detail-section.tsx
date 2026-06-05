@@ -1,11 +1,9 @@
 'use client'
 
-import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronLeft, MapPin, Clock, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { EventRegisterDialog } from '@/components/event-register-dialog'
+import { ChevronLeft, MapPin, Clock } from 'lucide-react'
+import { EventRegisterForm } from '@/components/event-register-form'
 import type { EventContentBlock, EventItem } from '@/lib/events-data'
 
 type EventDetailSectionProps = {
@@ -53,8 +51,6 @@ function EventContent({ blocks, eventId }: { blocks: EventContentBlock[]; eventI
 }
 
 export function EventDetailSection({ event }: EventDetailSectionProps) {
-  const [registerOpen, setRegisterOpen] = useState(true)
-
   return (
     <article className="flex-1 w-full max-w-2xl mx-auto px-4 sm:px-6 pt-4 pb-12 sm:pb-16 md:pt-6">
       <Link
@@ -95,6 +91,19 @@ export function EventDetailSection({ event }: EventDetailSectionProps) {
         </ul>
       )}
 
+      <section
+        id="dang-ky"
+        className="mt-6 rounded-2xl border border-blue-200 bg-blue-50/50 p-5 sm:p-6 shadow-sm"
+      >
+        <h2 className="text-lg sm:text-xl font-bold text-gray-900">Đăng ký tham gia</h2>
+        <p className="mt-1.5 text-sm text-gray-600 leading-relaxed">
+          Điền thông tin bên dưới để giữ chỗ và nhận xác nhận qua email hoặc số điện thoại.
+        </p>
+        <div className="mt-5">
+          <EventRegisterForm event={event} />
+        </div>
+      </section>
+
       <div className="relative mt-6 w-full aspect-square rounded-xl overflow-hidden border border-gray-200 bg-gray-100 shadow-sm">
         <Image
           src={event.thumbnail}
@@ -111,42 +120,6 @@ export function EventDetailSection({ event }: EventDetailSectionProps) {
       </p>
 
       <EventContent blocks={event.content} eventId={event.id} />
-
-      {/* <div className="mt-8 flex justify-center sm:justify-start">
-        <Button
-          type="button"
-          size="lg"
-          className="min-h-[48px] px-8 text-base font-semibold touch-manipulation"
-          onClick={() => setRegisterOpen(true)}
-        >
-          Đăng ký tham gia
-          <ArrowRight className="size-5 ml-1" aria-hidden />
-        </Button>
-      </div> */}
-
-      <section className="mt-10 sm:mt-12 rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8 text-center">
-        <h2 className="text-lg sm:text-xl font-bold text-gray-900">
-          Sẵn sàng tham gia sự kiện?
-        </h2>
-        <p className="mt-2 text-sm sm:text-base text-gray-600 max-w-md mx-auto leading-relaxed">
-          Đăng ký ngay để giữ chỗ và trực tiếp đối thoại cùng các chuyên gia từ NIC, HUST và NVIDIA.
-        </p>
-        <Button
-          type="button"
-          size="lg"
-          className="mt-5 min-h-[48px] px-8 text-base font-semibold touch-manipulation"
-          onClick={() => setRegisterOpen(true)}
-        >
-          Đăng ký ngay
-          <ArrowRight className="size-5 ml-1" aria-hidden />
-        </Button>
-      </section>
-
-      <EventRegisterDialog
-        event={event}
-        open={registerOpen}
-        onOpenChange={setRegisterOpen}
-      />
     </article>
   )
 }

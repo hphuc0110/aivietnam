@@ -14,6 +14,7 @@ var HEADER_ROW = [
   'Họ và tên',
   'Email',
   'Số điện thoại',
+  'Tên công ty',
   'Nghề nghiệp',
   'Ghi chú',
 ];
@@ -56,6 +57,7 @@ function doPost(e) {
     String(payload.fullName).trim(),
     String(payload.email).trim(),
     String(payload.phone).trim(),
+    String(payload.companyName || '').trim(),
     String(payload.occupation).trim(),
     String(payload.notes || '').trim(),
   ]);

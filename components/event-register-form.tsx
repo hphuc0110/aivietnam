@@ -44,6 +44,7 @@ export function EventRegisterForm({
           fullName: String(data.get('fullName') ?? ''),
           email: String(data.get('email') ?? ''),
           phone: String(data.get('phone') ?? ''),
+          companyName: String(data.get('companyName') ?? ''),
           occupation: String(data.get('occupation') ?? ''),
           notes: String(data.get('notes') ?? ''),
         }),
@@ -100,6 +101,15 @@ export function EventRegisterForm({
           type="tel"
           placeholder="0901234567"
           required
+          disabled={submitting}
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="register-company">Tên công ty</Label>
+        <Input
+          id="register-company"
+          name="companyName"
+          placeholder="Công ty TNHH ABC"
           disabled={submitting}
         />
       </div>
