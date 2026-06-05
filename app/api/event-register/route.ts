@@ -7,6 +7,7 @@ export type EventRegistrationPayload = {
   email: string
   phone: string
   companyName?: string
+  tenCongTy?: string
   occupation: string
   notes?: string
 }
@@ -33,7 +34,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false, error: 'Dữ liệu không hợp lệ.' }, { status: 400 })
   }
 
-  const { eventId, eventTitle, fullName, email, phone, companyName, occupation, notes } = body
+  const { eventId, eventTitle, fullName, email, phone, companyName, tenCongTy, occupation, notes } =
+    body
+  const company =
+    companyName?.trim() || tenCongTy?.trim() || ''
 
   if (!fullName?.trim() || !email?.trim() || !phone?.trim() || !occupation?.trim()) {
     return NextResponse.json(
@@ -53,7 +57,7 @@ export async function POST(request: Request) {
         fullName: fullName.trim(),
         email: email.trim(),
         phone: phone.trim(),
-        companyName: companyName?.trim() ?? '',
+        companyName: company,
         occupation: occupation.trim(),
         notes: notes?.trim() ?? '',
       }),
@@ -61,9 +65,15 @@ export async function POST(request: Request) {
     })
 
     const text = await upstream.text()
-    let result: { success?: boolean; error?: string }
+    let result: {
+      success?: boolean
+      error?: string
+      version?: string
+      companySaved?: string
+      sheetName?: string
+    }
     try {
-      result = JSON.parse(text) as { success?: boolean; error?: string }
+      result = JSON.parse(text) as typeof result
     } catch {
       result = { success: false, error: 'Phản hồi từ Google không hợp lệ.' }
     }
@@ -78,7 +88,12 @@ export async function POST(request: Request) {
       )
     }
 
-    return NextResponse.json({ success: true })
+    return NextResponse.json({
+      success: true,
+      companySaved: result.companySaved ?? company,
+      sheetName: result.sheetName,
+      scriptVersion: result.version,
+    })
   } catch {
     return NextResponse.json(
       { success: false, error: 'Không kết nối được máy chủ đăng ký. Vui lòng thử lại.' },

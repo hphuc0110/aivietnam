@@ -110,6 +110,7 @@ export function EventRegisterForm({
           id="register-company"
           name="companyName"
           placeholder="Công ty TNHH ABC"
+          autoComplete="organization"
           disabled={submitting}
         />
       </div>
