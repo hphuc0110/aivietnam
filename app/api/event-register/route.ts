@@ -6,7 +6,7 @@ export type EventRegistrationPayload = {
   fullName: string
   email: string
   phone: string
-  companyName?: string
+  companyName: string
   tenCongTy?: string
   occupation: string
   notes?: string
@@ -57,6 +57,57 @@ async function postToGoogleScript(scriptUrl: string, payload: Record<string, str
   return { result, httpOk: response.ok, status: response.status }
 }
 
+function maskScriptUrl(url: string) {
+  const match = url.match(/\/macros\/s\/([^/]+)\//)
+  if (!match) return 'invalid-url'
+  const id = match[1]
+  if (id.length <= 12) return id
+  return `${id.slice(0, 6)}...${id.slice(-6)}`
+}
+
+export async function GET() {
+  const scriptUrl = process.env.GOOGLE_APPS_SCRIPT_URL?.trim()
+
+  if (!scriptUrl) {
+    return NextResponse.json({
+      ok: false,
+      error: 'Chưa cấu hình GOOGLE_APPS_SCRIPT_URL trên server (Vercel → Settings → Environment Variables).',
+    })
+  }
+
+  try {
+    const response = await fetch(scriptUrl, { cache: 'no-store', redirect: 'follow' })
+    const text = await response.text()
+
+    try {
+      const data = JSON.parse(text) as GoogleRegistrationResult & { ok?: boolean; message?: string }
+      return NextResponse.json({
+        ok: true,
+        configuredScriptUrl: maskScriptUrl(scriptUrl),
+        googleHttpStatus: response.status,
+        scriptVersion: data.version ?? null,
+        scriptUpToDate: data.version ? isSupportedScriptVersion(data.version) : false,
+        hint:
+          !data.version &&
+          'Server đang trỏ tới URL Web App cũ. Cập nhật GOOGLE_APPS_SCRIPT_URL trên Vercel bằng URL mới (có version v5), rồi Redeploy.',
+      })
+    } catch {
+      return NextResponse.json({
+        ok: false,
+        configuredScriptUrl: maskScriptUrl(scriptUrl),
+        googleHttpStatus: response.status,
+        error: 'Google Apps Script không trả JSON hợp lệ.',
+      })
+    }
+  } catch {
+    return NextResponse.json({
+      ok: false,
+      configuredScriptUrl: maskScriptUrl(scriptUrl),
+      error: 'Không kết nối được Google Apps Script URL.',
+    })
+  }
+}
+
 export async function POST(request: Request) {
   const scriptUrl = process.env.GOOGLE_APPS_SCRIPT_URL?.trim()
   const secret = process.env.GOOGLE_APPS_SCRIPT_SECRET?.trim()
@@ -84,9 +135,9 @@ export async function POST(request: Request) {
   const company = (companyName ?? tenCongTy ?? '').trim()
   const jobTitle = (occupation ?? '').trim()
 
-  if (!fullName?.trim() || !email?.trim() || !phone?.trim() || !jobTitle) {
+  if (!fullName?.trim() || !email?.trim() || !phone?.trim() || !company || !jobTitle) {
     return NextResponse.json(
-      { success: false, error: 'Vui lòng điền đầy đủ các trường bắt buộc.' },
+      { success: false, error: 'Vui lòng điền đầy đủ các trường bắt buộc (gồm tên công ty).' },
       { status: 400 }
     )
   }
@@ -122,8 +173,9 @@ export async function POST(request: Request) {
         {
           success: false,
           error:
-            'Google Apps Script đang chạy bản cũ (chưa deploy code mới). Trên Google Sheet → Extensions → Apps Script → Deploy → Manage deployments → New version → Deploy. Mở URL Web App phải thấy version "2026-06-05-v5".',
+            'GOOGLE_APPS_SCRIPT_URL trên server đang trỏ tới Web App cũ (không có version). Local dùng .env.local nhưng Vercel cần cấu hình riêng: Settings → Environment Variables → cập nhật GOOGLE_APPS_SCRIPT_URL bằng URL mới có "version":"2026-06-05-v5" → Redeploy.',
           scriptVersion: null,
+          configuredScriptUrl: maskScriptUrl(scriptUrl),
           sentCompanyName: company,
           sentOccupation: jobTitle,
         },

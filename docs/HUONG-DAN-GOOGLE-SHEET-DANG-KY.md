@@ -44,3 +44,15 @@ Dòng **cũ** trước khi sửa có thể vẫn lệch; chỉ dòng **mới** s
 
 - `GOOGLE_APPS_SCRIPT_URL` — URL Web App (POST).
 - `GOOGLE_APPS_SCRIPT_SECRET` — (tuỳ chọn) khớp `REGISTRATION_SECRET` trong Script Properties của Apps Script.
+
+### Deploy lên Vercel (quan trọng)
+
+File `.env.local` **không** tự động lên Vercel. Phải thêm thủ công:
+
+1. Vercel → Project → **Settings** → **Environment Variables**
+2. Thêm `GOOGLE_APPS_SCRIPT_URL` = URL `/exec` mới (mở trên trình duyệt phải thấy `"version":"2026-06-05-v5"`)
+3. Thêm `GOOGLE_APPS_SCRIPT_SECRET` = cùng giá trị trong `.env.local`
+4. Chọn môi trường **Production** (và Preview nếu cần)
+5. **Deployments** → ⋮ → **Redeploy** (bắt buộc sau khi đổi env)
+
+Kiểm tra sau deploy: mở `https://your-domain.vercel.app/api/event-register` — phải có `"scriptVersion":"2026-06-05-v5"` và `"scriptUpToDate":true`.

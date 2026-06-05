@@ -49,16 +49,17 @@ function doPost(e) {
       return jsonResponse({ success: false, error: 'Unauthorized.' }, 401);
     }
 
-    if (!payload.fullName || !payload.email || !payload.phone || !getOccupation(payload)) {
+    var company = getCompanyName(payload);
+    var occupation = getOccupation(payload);
+
+    if (!payload.fullName || !payload.email || !payload.phone || !company || !occupation) {
       return jsonResponse(
-        { success: false, error: 'Thiếu thông tin bắt buộc (họ tên, email, SĐT, nghề nghiệp).' },
+        { success: false, error: 'Thiếu thông tin bắt buộc (họ tên, email, SĐT, tên công ty, nghề nghiệp).' },
         400
       );
     }
 
     var sheet = getOrCreateSheet();
-    var company = getCompanyName(payload);
-    var occupation = getOccupation(payload);
     var now = Utilities.formatDate(
       new Date(),
       Session.getScriptTimeZone() || 'Asia/Ho_Chi_Minh',

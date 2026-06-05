@@ -146,6 +146,7 @@ export function EventRegisterForm({
           name="companyName"
           placeholder="Công ty TNHH ABC"
           autoComplete="organization"
+          required
           disabled={submitting}
           value={fields.companyName}
           onChange={(e) => updateField('companyName', e.target.value)}
